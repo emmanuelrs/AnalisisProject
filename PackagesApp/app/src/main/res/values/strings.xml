@@ -8,5 +8,6 @@
     <string name="route">Routes</string>
     <string name="view">View</string>
     <string name="news">New</string>
+    <string name="insert">Insert</string>
 
 </resources>
