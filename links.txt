@@ -1,0 +1,5 @@
+https://www.youtube.com/watch?v=gARkm1GYtko
+http://stackoverflow.com/questions/5486789/how-do-i-make-a-splash-screen
+http://2.bp.blogspot.com/-9At0daI9cEw/VI45UVYl0eI/AAAAAAAAB-0/H81uMuAAmsc/s1600/splashscreen480x800.png
+http://www.okedroid.com/2014/12/cara-memasang-splashcreen-di-aplikasi-android.html
+http://developer.android.com/training/basics/firstapp/starting-activity.html
