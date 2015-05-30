@@ -2,40 +2,43 @@ package Logic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Random;
 
 public class Population{
 	private ArrayList<Individual> listOfIndividuals;
-	private int [][] candidateSet;
+	private ArrayList<Packages> candidateSet;
 	private int crossoverValue;
 	private double totalFitness;
 	private double mutationProbability;
 	private int chromosome;
 	
-	public Population(int[][] candidateSet){
+	public Population(ArrayList<Packages> list){
 		listOfIndividuals = new ArrayList<Individual>();
 		this.candidateSet = sortArray(candidateSet);
 		crossoverValue = 3;
 		mutationProbability = 0.05;
 	}
 	
-	public int[][] sortArray(int [][] array){
-		Arrays.sort(array, new Comparator<int[]>(){
-			public int compare(int[] a, int [] b){
-				return Integer.compare(a[0],b[0]);
-			}
-		});
-		return array;
+	public ArrayList<Packages> sortArray(ArrayList<Packages> list){
+		Collections.sort(list, new Comparator<Packages>() {
+         	public int compare(Packages p1, Packages p2) {
+            return Double.compare(p2.getVolume(),p1.getVolume());
+        }
+
+    });
+		return list;
 	}
 	
-	public void generatePopulation(int populationSize,int chromosomeSize, boolean option){
+	public void generatePopulation(int populationSize,int chromosomeSize, boolean option, Container container){
 		chromosome = chromosomeSize;
 		if (option){
 			for (int i = 0; i < populationSize; i++){
 				Individual individual = new Individual();
 				individual.generateChromosome(chromosomeSize);
-				individual.calculateFitness(candidateSet);
+				individual.calculateFitness(candidateSet, container.getContainerLength(), 
+						container.getContainerWidth(), container.getContainerHeight());
 				listOfIndividuals.add(individual);	
 			}
 		} else {
@@ -47,7 +50,8 @@ public class Population{
 				individual1 = selectionFunction();
 				individual2 = selectionFunction();
 				finalIndividual = crossIndividuals(individual1.getChromosome(), individual2.getChromosome());
-				finalIndividual.calculateFitness(candidateSet);
+				finalIndividual.calculateFitness(candidateSet, container.getContainerLength(), 
+						container.getContainerWidth(), container.getContainerHeight());
 				newListOfIndividuals.add(finalIndividual);
 			}
 			listOfIndividuals = newListOfIndividuals;
@@ -142,7 +146,7 @@ public class Population{
 		return mutationProbability;
 	}
 	
-	public int[][] getCandidateSet(){
+	public ArrayList<Packages> getCandidateSet(){
 		return candidateSet;
 	}
 	

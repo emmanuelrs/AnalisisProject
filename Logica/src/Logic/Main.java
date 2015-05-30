@@ -40,12 +40,6 @@ public class Main {
 			System.out.println(listOfPackages.get(i).getVolume());
 		}
 		
-		Collections.sort(listOfPackages, new Comparator<Packages>() {
-	         	public int compare(Packages p1, Packages p2) {
-	            return Double.compare(p2.getVolume(),p1.getVolume());
-	        }
-
-	    });
 		
 		System.out.println("--------------------------------");
 		
