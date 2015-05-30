@@ -18,16 +18,17 @@ public class Packages {
 	private double packageHeight;
 	private int diasEntrega;
 	private String nombre; // Descripción breve del paquete.
+	private Owner Owner;
 	
 	
-
-	public Packages(double aPackageLength, double aPackageWidth, double aPackageHeight, int aDiasEntrega) {
+	public Packages(double aPackageLength, double aPackageWidth, double aPackageHeight, int aDiasEntrega, Owner pOwner) {
 		// TODO Auto-generated constructor stub
 		
 		setPackageLength(aPackageLength);
 		setPackageWidth(aPackageWidth);
 		setPackageHeight(aPackageHeight);
 		setDiasEntrega(aDiasEntrega);
+		setOwner(pOwner);
 		
 	}
 
@@ -72,6 +73,13 @@ public class Packages {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	public Owner getOwner() {
+		return Owner;
+	}
+
+	public void setOwner(Owner owner) {
+		Owner = owner;
 	}
 
 
