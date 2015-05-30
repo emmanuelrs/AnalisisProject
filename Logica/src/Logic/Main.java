@@ -10,20 +10,21 @@ import java.util.ArrayList;
  *
  */
 public class Main { 
-	static ArrayList<Packages> paquetesOrdenados; 
+	static ArrayList<Packages> paquetesOrdenados = new ArrayList<Packages>(); 
 
 
 	public static void ordenarP(ArrayList<Packages> sinOrdenar) {
 		// TODO Auto-generated constructor stub 
 		double mayor = sinOrdenar.get(0).returnVolumne();   
 		int indexMayor = 0; 
-		while(sinOrdenar.size() != 0){ 
-			for(int i = 1; i < sinOrdenar.size(); i++ ){ 
+		while(sinOrdenar.size() > 0){ 
+			for(int i = 0; i < sinOrdenar.size(); i++ ){ 
 				if(sinOrdenar.get(i).returnVolumne() > mayor){ 
 					mayor = sinOrdenar.get(i).returnVolumne();  
 					indexMayor = i; 
-				}   
+				}    
 				paquetesOrdenados.add(sinOrdenar.get(indexMayor)); 
+				System.out.println(sinOrdenar.get(indexMayor).returnVolumne());
 				sinOrdenar.remove(indexMayor);
 			} 
 		}
