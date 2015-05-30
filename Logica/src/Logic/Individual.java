@@ -39,17 +39,54 @@ public class Individual {
 	
 	public void calculateFitness(ArrayList<Packages> list, double length, double width, double height){
 		int counter = 0;
-		double p_length = length;
-		double p_width = width;
-		double p_height = height; 
-		
+		double A_length = length;
+		double A_width = width;
+		double A_height = height;  
+		double D_length = length;
+		double D_width = width;
+		double D_height = height;  
+		double R_length = length;
+		double R_width = width;
+		double R_height = height; 
+	
 		for(int i = 0; i < chromosome.size(); i++){
-			if(chromosome.get(i) == 1){
-				p_length -= list.get(i).getPackageLength();
-				p_width -= list.get(i).getPackageWidth();
-				p_height -= list.get(i).getPackageHeight();
-				if((p_length <= 0) && (p_width <= 0) && (p_height <= 0)){
-					counter++;
+			if(chromosome.get(i) == 1){ 
+				if(A_length > 0 && A_length != length ){  
+					//recorer todas las cajas y ver si caben en las dimensiones del subespacio de Arriba 
+					// si cabe alguna counter++ 
+					// siempre se cambian a 0 sin importar si se puede meter una caja o no
+					A_length = 0;
+					A_width = 0;
+					A_height = 0;  
+				}  
+				
+				else if(D_length > 0 && D_length != length ){  
+					//recorer todas las cajas y ver si caben en las dimensiones del subespacio de la derecha 
+					// si cabe alguna counter++ 
+					// siempre se cambian a 0 sin importar si se puede meter una caja o no
+					D_length = 0;
+					D_width = 0;
+					D_height = 0;  
+				} 
+				
+				else {  
+					//mete la caja mas grande y hace "update" a los subespacios
+					A_length = list.get(i).getPackageLength();
+					A_width = list.get(i).getPackageWidth();
+					A_height -= list.get(i).getPackageHeight();  
+					
+					D_length = list.get(i).getPackageLength(); 
+					D_width -= list.get(i).getPackageWidth(); 
+					D_height = list.get(i).getPackageHeight(); 
+					
+					R_length -= list.get(i).getPackageLength(); 
+					R_width  = list.get(i).getPackageWidth(); 
+					R_height = list.get(i).getPackageHeight();  
+					
+				}
+				
+
+				
 				} else {
 					counter = 0;
 				}

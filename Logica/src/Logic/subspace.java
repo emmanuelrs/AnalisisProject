@@ -40,7 +40,9 @@ class subspace {
 		            return Double.compare(p2.getVolume(),p1.getVolume());
 		        }
 
-		    }); 
+		    });  
+		  
+		  
 			
 			for(int i = 0; i < list.size(); i++){
 				System.out.println(list.get(i).getVolume());
@@ -48,6 +50,8 @@ class subspace {
 			System.out.println("--------------------------------");
 		  return list;
 		 } 
+	
+	public 
 	
 
 
