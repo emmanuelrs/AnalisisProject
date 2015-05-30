@@ -1,57 +1,57 @@
-/**
- * 
- */
+
 package Logic;
 
 import java.util.ArrayList;
-
-/**
- * @author emmanuelrosales
- *
- */
-public class Main { 
-	static ArrayList<Packages> paquetesOrdenados = new ArrayList<Packages>(); 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Random;
 
 
-	public static void ordenarP(ArrayList<Packages> sinOrdenar) {
-		// TODO Auto-generated constructor stub 
-		double mayor = sinOrdenar.get(0).returnVolumne();   
-		int indexMayor = 0; 
-		while(sinOrdenar.size() > 0){ 
-			for(int i = 0; i < sinOrdenar.size(); i++ ){ 
-				if(sinOrdenar.get(i).returnVolumne() > mayor){ 
-					mayor = sinOrdenar.get(i).returnVolumne();  
-					indexMayor = i; 
-				}    
-				paquetesOrdenados.add(sinOrdenar.get(indexMayor)); 
-				System.out.println(sinOrdenar.get(indexMayor).returnVolumne());
-				sinOrdenar.remove(indexMayor);
-			} 
-		}
-	}
+public class Main {
 
-	
+	/**
+	 * 
+	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub 
-		Container contenedor1 = new Container();  
-		Owner owner1 = new Owner("Emmanuel", 4, 15, "Atenas");
-		Packages paquete1 = new Packages(1, 2, 1, 0, owner1); 
-		Packages paquete2 = new Packages(3, 2, 2, 1, owner1); 
-		Packages paquete3 = new Packages(2, 1, 1, 0, owner1); 
-		Packages paquete4 = new Packages(2, 2, 2, 1, owner1); 
-		Packages paquete5 = new Packages(1, 1, 1, 0, owner1); 
-		ArrayList<Packages> paquetes = new ArrayList(); 
-		paquetes.add(paquete1);  
-		paquetes.add(paquete2);  
-		paquetes.add(paquete3);  
-		paquetes.add(paquete4);  
-		paquetes.add(paquete5);   
-		ordenarP(paquetes); 
-		for(int i = 0; i < paquetesOrdenados.size(); i++){ 
-			System.out.println(paquetesOrdenados.get(i).returnVolumne());
+		Random random = new Random();
+		Container truck = new Container();
+		ArrayList<Owner> ownerList = new ArrayList<Owner>();
+		ArrayList<Packages> listOfPackages = new ArrayList<Packages>();
+		
+		ownerList.add(new Owner("Persona", 7, 12, "Escazu"));
+		ownerList.add(new Owner("Alguien", 9, 18, "San Jose Centro"));
+		ownerList.add(new Owner("Otro", 15, 23, "Tres Rios"));
+		ownerList.add(new Owner("Alguien mas", 17, 21, "Moravia"));
+		
+		for(int i = 0; i < 5; i++){
+			Owner owner;
+			double length = 1 + (truck.getContainerLength() - 1) * random.nextDouble(); 
+			double width =  1 + (truck.getContainerWidth() - 1) * random.nextDouble();
+			double height = 1 + (truck.getContainerHeight() - 1) * random.nextDouble();
+			int number = random.nextInt(ownerList.size());
+			int deliveryLimit = random.nextInt(1);
+			
+			owner = ownerList.get(number);
+			listOfPackages.add(new Packages(length, width, height, deliveryLimit, owner));			
+		}
+
+		
+		for(int i = 0; i < listOfPackages.size(); i++){
+			System.out.println(listOfPackages.get(i).getVolume());
 		}
 		
+		Collections.sort(listOfPackages, new Comparator<Packages>() {
+	         	public int compare(Packages p1, Packages p2) {
+	            return Double.compare(p2.getVolume(),p1.getVolume());
+	        }
 
+	    });
+		
+		System.out.println("--------------------------------");
+		
+		for(int i = 0; i < listOfPackages.size(); i++){
+			System.out.println(listOfPackages.get(i).getVolume());
+		}
 	}
-
+	
 }

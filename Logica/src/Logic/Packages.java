@@ -16,6 +16,7 @@ public class Packages {
 	private double packageLength;
 	private double packageWidth;
 	private double packageHeight;
+	private double volume;
 	private int diasEntrega;
 	private String nombre; // Descripción breve del paquete.
 	private Owner Owner;
@@ -29,10 +30,11 @@ public class Packages {
 		setPackageHeight(aPackageHeight);
 		setDiasEntrega(aDiasEntrega);
 		setOwner(pOwner);
+		volume = returnVolume();
 		
 	}
 	
-	public double returnVolumne(){
+	public double returnVolume(){
 		return getPackageLength() * getPackageWidth() * getPackageHeight();
 		
 	}
@@ -59,6 +61,14 @@ public class Packages {
 
 	public double getPackageWidth() {
 		return packageWidth;
+	}
+
+	public double getVolume() {
+		return volume;
+	}
+
+	public void setVolume(double volume) {
+		this.volume = volume;
 	}
 
 	public void setPackageWidth(double packageWidth) {
