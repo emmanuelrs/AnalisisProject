@@ -15,6 +15,7 @@ public class Main {
 	public static void main(String[] args) {
 		Random random = new Random();
 		Container truck = new Container();
+		Individual individual;
 		ArrayList<Owner> ownerList = new ArrayList<Owner>();
 		ArrayList<Packages> listOfPackages = new ArrayList<Packages>();
 		
@@ -34,17 +35,25 @@ public class Main {
 			owner = ownerList.get(number);
 			listOfPackages.add(new Packages(length, width, height, deliveryLimit, owner));			
 		}
-
+		
+		Population population = new Population(listOfPackages);
+		population.generatePopulation(15, listOfPackages.size(), true, truck);
 		
 		for(int i = 0; i < listOfPackages.size(); i++){
 			System.out.println(listOfPackages.get(i).getVolume());
 		}
 		
-		
 		System.out.println("--------------------------------");
 		
 		for(int i = 0; i < listOfPackages.size(); i++){
 			System.out.println(listOfPackages.get(i).getVolume());
+		}
+		
+		System.out.println("---------------------------------");
+		
+		for(int i = 0; i < population.getListOfIndividuals().size(); i++){
+			System.out.println(population.getListOfIndividuals().get(i).getChromosome());
+			System.out.println(population.getListOfIndividuals().get(i).getFitness());
 		}
 	}
 	

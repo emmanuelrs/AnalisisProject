@@ -43,11 +43,18 @@ public class Individual {
 		double p_width = width;
 		double p_height = height; 
 		
-		for(int i = 0; i < list.size(); i++){
-			
-		}
-		
-				
+		for(int i = 0; i < chromosome.size(); i++){
+			if(chromosome.get(i) == 1){
+				p_length -= list.get(i).getPackageLength();
+				p_width -= list.get(i).getPackageWidth();
+				p_height -= list.get(i).getPackageHeight();
+				if((p_length <= 0) && (p_width <= 0) && (p_height <= 0)){
+					counter++;
+				} else {
+					counter = 0;
+				}
+			}
+		}	
 		this.fitness = counter;
 	}
 	

@@ -14,7 +14,7 @@ public class Population{
 	private double mutationProbability;
 	private int chromosome;
 	
-	public Population(ArrayList<Packages> list){
+	public Population(ArrayList<Packages> candidateSet){
 		listOfIndividuals = new ArrayList<Individual>();
 		this.candidateSet = sortArray(candidateSet);
 		crossoverValue = 3;
