@@ -16,42 +16,38 @@ public class Individual {
 		this.chromosome = new ArrayList<Integer>();
 	}
 	
-	public void generateChromosome(int chromosomeSize, boolean option){
+	public void generateChromosome(int chromosomeSize){
 		int number;
 		Random random = new Random();
 		number = random.nextInt(5);
-		if(option){
-			for	(int i = 0; i < chromosomeSize/2; i++){
-				int bit = 0;
-				if(random.nextInt(5) == number){
-					bit = 1;
-				}
-				chromosome.add(bit);
+		for	(int i = 0; i < chromosomeSize/2; i++){
+			int bit = 0;
+			if(random.nextInt(5) == number){
+				bit = 1;
 			}
-			for	(int i = chromosomeSize/2; i < chromosomeSize; i++){
-				int bit = 1;
-				if(random.nextInt(5) == number){
-					bit = 0;
-				}
-				chromosome.add(bit);
+			chromosome.add(bit);
+		}
+		for	(int i = chromosomeSize/2; i < chromosomeSize; i++){
+			int bit = 1;
+			if(random.nextInt(5) == number){
+				bit = 0;
 			}
+			chromosome.add(bit);
 			Collections.shuffle(chromosome);
 		}
 	}
 	
-	public void calculateFitness(int [][] array){
-		ArrayList<Integer> range;
+	public void calculateFitness(ArrayList<Packages> list, double length, double width, double height){
 		int counter = 0;
-		for(int i = 0; i < chromosome.size(); i++){
-			if(chromosome.get(i) == 1){
-				range = createRange(array[i][0],array[i][1]);
-				if(!(i+1 >= chromosome.size()) && !range.contains(array[i+1][1])){
-					counter++;
-				} else {
-					counter = 0;
-				}
-			}
+		double p_length = length;
+		double p_width = width;
+		double p_height = height; 
+		
+		for(int i = 0; i < list.size(); i++){
+			
 		}
+		
+				
 		this.fitness = counter;
 	}
 	

@@ -34,7 +34,7 @@ public class Population{
 		if (option){
 			for (int i = 0; i < populationSize; i++){
 				Individual individual = new Individual();
-				individual.generateChromosome(chromosomeSize,true);
+				individual.generateChromosome(chromosomeSize);
 				individual.calculateFitness(candidateSet);
 				listOfIndividuals.add(individual);	
 			}
