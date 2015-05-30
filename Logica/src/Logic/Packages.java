@@ -31,6 +31,11 @@ public class Packages {
 		setOwner(pOwner);
 		
 	}
+	
+	public double returnVolumne(){
+		return getPackageLength() * getPackageWidth() * getPackageHeight();
+		
+	}
 
 	public int getDiasEntrega() {
 		return diasEntrega;

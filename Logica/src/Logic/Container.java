@@ -35,6 +35,10 @@ public class Container {
 		setContainerHeight(4);	
 	}
 	
+	public double getVolume(){
+		return getContainerLength() * getContainerWidth() * getContainerHeight();
+	}
+	
 	public double getContainerLength() {
 		return containerLength;
 	}
