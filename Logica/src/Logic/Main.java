@@ -3,24 +3,53 @@
  */
 package Logic;
 
+import java.util.ArrayList;
+
 /**
  * @author emmanuelrosales
  *
  */
-public class Main {
+public class Main { 
+	static ArrayList<Packages> paquetesOrdenados; 
 
-	/**
-	 * 
-	 */
-	public Main() {
-		// TODO Auto-generated constructor stub
+
+	public static void ordenarP(ArrayList<Packages> sinOrdenar) {
+		// TODO Auto-generated constructor stub 
+		double mayor = sinOrdenar.get(0).returnVolumne();   
+		int indexMayor = 0; 
+		while(sinOrdenar.size() != 0){ 
+			for(int i = 1; i < sinOrdenar.size(); i++ ){ 
+				if(sinOrdenar.get(i).returnVolumne() > mayor){ 
+					mayor = sinOrdenar.get(i).returnVolumne();  
+					indexMayor = i; 
+				}   
+				paquetesOrdenados.add(sinOrdenar.get(indexMayor)); 
+				sinOrdenar.remove(indexMayor);
+			} 
+		}
 	}
 
-	/**
-	 * @param args
-	 */
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 
+		Container contenedor1 = new Container();  
+		Owner owner1 = new Owner("Emmanuel", 4, 15, "Atenas");
+		Packages paquete1 = new Packages(1, 2, 1, 0, owner1); 
+		Packages paquete2 = new Packages(3, 2, 2, 1, owner1); 
+		Packages paquete3 = new Packages(2, 1, 1, 0, owner1); 
+		Packages paquete4 = new Packages(2, 2, 2, 1, owner1); 
+		Packages paquete5 = new Packages(1, 1, 1, 0, owner1); 
+		ArrayList<Packages> paquetes = new ArrayList(); 
+		paquetes.add(paquete1);  
+		paquetes.add(paquete2);  
+		paquetes.add(paquete3);  
+		paquetes.add(paquete4);  
+		paquetes.add(paquete5);   
+		ordenarP(paquetes); 
+		for(int i = 0; i < paquetesOrdenados.size(); i++){ 
+			System.out.println(paquetesOrdenados.get(i).returnVolumne());
+		}
+		
 
 	}
 
