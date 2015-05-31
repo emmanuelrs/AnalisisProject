@@ -50,9 +50,5 @@ class subspace {
 			System.out.println("--------------------------------");
 		  return list;
 		 } 
-	
-	public 
-	
-
 
 }

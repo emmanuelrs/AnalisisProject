@@ -87,14 +87,14 @@ public class Individual {
 				
 
 				
-				} else {
+			}else {
 					counter = 0;
 				}
 			}
-		}	
+			
 		this.fitness = counter;
-	}
 	
+}
 
 	private ArrayList<Integer> createRange(int start, int end){
 		ArrayList<Integer> range = new ArrayList<Integer>();
