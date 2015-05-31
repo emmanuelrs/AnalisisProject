@@ -21,12 +21,20 @@ public class viewTrucks extends ActionBarActivity {
 
     GridView grid;
     InsertTruck truck = new InsertTruck();
-    String[] letters = new String[truck.getCamiones().size()];
+    String[] letters = new String[(truck.getCamiones().size() * 4)];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_trucks);
+        int j = 0;
+        for(int i = 0; i < truck.getCamiones().size(); i++){
+            letters[j] = String.valueOf(i + 1);
+            letters[j+1] = String.valueOf(truck.getCamiones().get(i).getContainerHeight());
+            letters[j+2] = String.valueOf(truck.getCamiones().get(i).getContainerLength());
+            letters[j+3] = String.valueOf(truck.getCamiones().get(i).getContainerWidth());
+            j = j + 4;
+        }
         grid = (GridView) findViewById(R.id.gridViewTrucks);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, letters);
         grid.setAdapter(adapter);
@@ -62,14 +70,5 @@ public class viewTrucks extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void lista(View view){
-        int j = 0;
-        for(int i = 0; i < truck.getCamiones().size(); i++){
-            letters[j] = String.valueOf(i + 1);
-            letters[j+1] = String.valueOf(truck.getCamiones().get(i).getContainerHeight());
-            letters[j+2] = String.valueOf(truck.getCamiones().get(i).getContainerLength());
-            letters[j+3] = String.valueOf(truck.getCamiones().get(i).getContainerWidth());
-            j = j + 4;
-        }
-    }
+
 }
