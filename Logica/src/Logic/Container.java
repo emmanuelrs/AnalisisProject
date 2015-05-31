@@ -31,9 +31,9 @@ public class Container {
 		// Si no se quiere poner un tamaÑo especifico se crea uno
 		// con medidas default
 		
-		setContainerLength(12);
-		setContainerWidth(6);
-		setContainerHeight(6);	
+		setContainerLength(36);
+		setContainerWidth(24);
+		setContainerHeight(24);	
 		setVolume(getContainerLength() * getContainerWidth() * getContainerHeight());
 	}
 

@@ -21,37 +21,23 @@ public class Main {
 		
 		Owner owner1 = new Owner("Persona", 7, 12, "Escazu");
 		
-		/*
+
 		ownerList.add(new Owner("Persona", 7, 12, "Escazu"));
 		ownerList.add(new Owner("Alguien", 9, 18, "San Jose Centro"));
 		ownerList.add(new Owner("Otro", 15, 23, "Tres Rios"));
 		ownerList.add(new Owner("Alguien mas", 17, 21, "Moravia"));
-		/*
-		for(int i = 0; i < 5; i++){
+		for(int i = 0; i < 20; i++){
 			Owner owner;
-			int length = random.nextInt(truck.getContainerLength() - 1) + 1; 
-			int width = random.nextInt(truck.getContainerWidth() - 1) + 1;
-			int height = random.nextInt(truck.getContainerHeight() - 1) + 1;
+			int length = random.nextInt(12 - 1) + 1; 
+			int width = random.nextInt(6 - 1) + 1;
+			int height = random.nextInt(6 - 1) + 1;
 			int number = random.nextInt(ownerList.size());
 			int deliveryLimit = random.nextInt(1);		
+			owner = ownerList.get(number);
+			listOfPackages.add(new Packages(length, width, height, deliveryLimit, owner));	
 		}
 		
 		
-		owner = ownerList.get(number);
-		listOfPackages.add(new Packages(length, width, height, deliveryLimit, owner));	
-		*/
-		
-		Packages package1 = new Packages(1,1,3,10, owner1);
-		Packages package2 = new Packages(2,1,5,10, owner1);
-		Packages package3 = new Packages(5,2,3,10, owner1);
-		Packages package4 = new Packages(4,5,1,10, owner1);
-		Packages package5 = new Packages(2,2,3,10, owner1);
-		
-		listOfPackages.add(package1);
-		listOfPackages.add(package2);
-		listOfPackages.add(package3);
-		listOfPackages.add(package4);
-		listOfPackages.add(package5);
 		
 		
 		Population population = new Population(listOfPackages);

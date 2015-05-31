@@ -11,7 +11,7 @@ public class Population{
 	private ArrayList<Packages> candidateSet;
 	private int crossoverValue;
 	private double totalFitness;
-	private double mutationProbability;
+	private double mutationProbability = 0.05;
 	private int chromosome;
 	
 	public Population(ArrayList<Packages> candidateSet){
@@ -24,7 +24,7 @@ public class Population{
 	public ArrayList<Packages> sortArray(ArrayList<Packages> list){
 		Collections.sort(list, new Comparator<Packages>() {
          	public int compare(Packages p1, Packages p2) {
-            return Double.compare(p1.getVolume(),p2.getVolume());
+            return Double.compare(p2.getVolume(),p1.getVolume());
         }
 
     });
@@ -68,7 +68,7 @@ public class Population{
 	
 	public Individual crossIndividuals(ArrayList<Integer> firstIndividual, ArrayList<Integer> secondIndividual){
 		Random random = new Random();
-		int gene;
+		int gene = random.nextInt(1);
 		int number = random.nextInt(firstIndividual.size()-1);
 		ArrayList<Integer> newChromosome = new ArrayList<Integer>();
 		Individual individual = new Individual();
@@ -80,7 +80,9 @@ public class Population{
 			newChromosome.add(secondIndividual.get(i));
 		}
 		
-		
+		if(random.nextDouble() == mutationProbability){
+			individual.getChromosome().set(number,gene);
+		}
 		
 		
 		individual.setChromosome(newChromosome);

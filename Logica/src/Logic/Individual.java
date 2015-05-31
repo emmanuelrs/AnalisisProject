@@ -59,15 +59,28 @@ public class Individual {
 				p_height = list.get(i).getPackageHeight();
 				if(subspace_right.getLength() - p_length >= 0  && subspace_right.getWidth() - p_width >= 0 && subspace_right.getHeight() - p_height  >= 0 
 						 && !subspace_right.isFull()){
-					subspace_right.setFull(true);
+					if(subspace_right.getWidth() - p_width <= 1){	
+						subspace_right.setFull(true);
+					} else {
+						subspace_right.setWidth(subspace_right.getWidth() - p_width);
+					}
 					counter++;
 				} else if(subspace_up.getLength() - p_length  >= 0  && subspace_up.getWidth() - p_width >= 0 && subspace_up.getHeight() - p_height  >= 0  
 						&& !subspace_up.isFull()){
-					subspace_up.setFull(true);
+					subspace_up.setHeight(subspace_up.getHeight() - p_height);
+					if(subspace_up.getHeight() - p_height <= 1){	
+						subspace_up.setFull(true);
+					} else {
+						subspace_up.setHeight(subspace_up.getHeight() - p_height);
+					}
 					counter++;
 				} else if(subspace_remaining.getLength() -  p_length  >= 0  && subspace_remaining.getWidth() - p_width >= 0 && subspace_remaining.getHeight() - p_height  >= 0 
 						&& !subspace_remaining.isFull()){
-					subspace_remaining.setFull(true);
+					if(subspace_remaining.getLength() -  p_length <= 1){	
+						subspace_remaining.setFull(true);
+					} else {
+					   subspace_remaining.setLength(subspace_remaining.getLength() -  p_length);
+					}
 					counter++;
 				} else {
 					counter = 0;
