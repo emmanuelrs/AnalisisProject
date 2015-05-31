@@ -20,12 +20,8 @@ public class viewTrucks extends ActionBarActivity {
 
 
     GridView grid;
-    static final String[] letters = new String[] {
-            "A", "B", "C", "D", "E",
-            "F", "G", "H", "I", "J",
-            "K", "L", "M", "N", "O",
-            "P", "Q", "R", "S", "T",
-            "U", "V", "W", "X", "Y", "Z"};
+    InsertTruck truck = new InsertTruck();
+    String[] letters = new String[truck.getCamiones().size()];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +63,13 @@ public class viewTrucks extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     public void lista(View view){
-        InsertTruck truck = new InsertTruck();
+        int j = 0;
         for(int i = 0; i < truck.getCamiones().size(); i++){
-        System.out.println(truck.getCamiones().get(i).getVolume());
+            letters[j] = String.valueOf(i + 1);
+            letters[j+1] = String.valueOf(truck.getCamiones().get(i).getContainerHeight());
+            letters[j+2] = String.valueOf(truck.getCamiones().get(i).getContainerLength());
+            letters[j+3] = String.valueOf(truck.getCamiones().get(i).getContainerWidth());
+            j = j + 4;
         }
     }
 }
