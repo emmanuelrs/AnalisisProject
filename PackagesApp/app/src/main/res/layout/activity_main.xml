@@ -82,7 +82,7 @@
         android:layout_alignLeft="@+id/txtMenu"
         android:layout_alignStart="@+id/txtMenu"
         android:textColor="#ffffffff"
-        android:onClick="jumpView" />
+        android:onClick="jumpViewT" />
 
     <Button
         android:layout_width="wrap_content"

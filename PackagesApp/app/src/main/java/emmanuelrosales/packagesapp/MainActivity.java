@@ -39,7 +39,11 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void jumpInsertT(View view) {
-        Intent intent = new Intent(view.getContext(), Trucks.class);
+        Intent intent = new Intent(view.getContext(), InsertTruck.class);
         startActivityForResult(intent, 0);
+    }
+    public void jumpViewT(View view) {
+        Intent intent1 = new Intent(view.getContext(), viewTrucks.class);
+        startActivityForResult(intent1, 0);
     }
 }

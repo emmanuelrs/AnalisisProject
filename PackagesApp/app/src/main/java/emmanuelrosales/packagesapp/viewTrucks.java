@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class viewTrucks extends ActionBarActivity {
@@ -34,5 +35,12 @@ public class viewTrucks extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void lista(View view){
+        InsertTruck truck = new InsertTruck();
+        truck.setCamiones();
+        for(int i = 0; i < truck.getCamiones().size(); i++){
+        System.out.println(truck.getCamiones().get(i));
+        }
     }
 }

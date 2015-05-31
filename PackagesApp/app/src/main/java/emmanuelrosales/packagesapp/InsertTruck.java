@@ -5,8 +5,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
 
 public class InsertTruck extends ActionBarActivity {
+
+    static private ArrayList<Integer> camiones = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,5 +38,16 @@ public class InsertTruck extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public static void setCamiones() {
+        camiones.add(3);
+        camiones.add(4);
+        camiones.add(5);
+    }
+
+    public static ArrayList<Integer> getCamiones() {
+
+        return camiones;
     }
 }
