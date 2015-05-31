@@ -16,8 +16,10 @@ public class Owner {
 	private String ownerName;
 	private int startAvailablity;
 	private int endAvailablity;
-	private String address;
-	
+	private String address;  
+	private int dispacheTime = 1; 
+	private int travelTime = 1; 
+
 	public Owner(String pName, int pStart, int pEnd, String pAddress) {
 		// TODO Auto-generated constructor stub
 		
@@ -58,6 +60,22 @@ public class Owner {
 
 	public void setAddress(String address) {
 		this.address = address;
+	} 
+	
+	public int getDispacheTime() {
+		return dispacheTime;
+	}
+
+	public void setDispacheTime(int dispacheTime) {
+		this.dispacheTime = dispacheTime;
+	}
+
+	public int getTravelTime() {
+		return travelTime;
+	}
+
+	public void setTravelTime(int travelTime) {
+		this.travelTime = travelTime;
 	}
 
 	

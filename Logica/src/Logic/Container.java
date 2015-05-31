@@ -4,6 +4,8 @@
 package Logic;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * @author emmanuelrosales
@@ -19,8 +21,9 @@ public class Container {
 	private int containerWidth;
 	private int containerHeight;
 	private int volume; 
-	private ArrayList<Packages> packagesToDeliver = new ArrayList<Packages>();   
-	private ArrayList<Owner> ownersToDeliver = new ArrayList<Owner>(); 
+	private static ArrayList<Packages> packagesToDeliver = new ArrayList<Packages>();   
+	private static ArrayList<Owner> ownersToDeliver = new ArrayList<Owner>();  
+	private static ArrayList<String> paquetesEntregados = new ArrayList<String>();
 	
 
 	public Container(int pLength, int pWidth, int pHeight) {
@@ -94,7 +97,33 @@ public class Container {
 		for(int i = 0; i < getPackagesToDeliver().size(); i++ ){ 
 			ownersToDeliver.add(getPackagesToDeliver().get(i).getOwner());
 		}
-	} 
+	}  
+	
+
+	public void organizeOwner(ArrayList<Owner> list){
+		Collections.sort(list, new Comparator<Owner>() {
+         	public int compare(Owner p1, Owner p2) {
+            return Double.compare(p1.getStartAvailablity(),p2.getStartAvailablity());
+        }
+		}); 
+    }
+	
+	public ArrayList<String> greedy(){   
+		organizeOwner(ownersToDeliver);   
+		int indice = 0; 
+		paquetesEntregados.add(ownersToDeliver.get(0).getAddress());
+		for(int i = 1; i< ownersToDeliver.size(); i++){ 
+			if(ownersToDeliver.get(indice).getStartAvailablity() + ownersToDeliver.get(indice).getTravelTime() + ownersToDeliver.get(indice).getDispacheTime() <= ownersToDeliver.get(i).getStartAvailablity()){  
+				paquetesEntregados.add(ownersToDeliver.get(i).getAddress()); 
+				indice = i;
+			} 
+		}  
+		if(paquetesEntregados.size() != ownersToDeliver.size()){ 
+			System.out.println("La solución es parcial"); 
+			return paquetesEntregados; 
+		} 
+		return paquetesEntregados;		
+	}
 
 
 	

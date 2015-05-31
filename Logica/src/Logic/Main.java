@@ -69,10 +69,11 @@ public class Main {
 		}
 		
 		truck.setPackagesToDeliver(finalList); 
-		truck.determineOwners(); 
-		for(int k = 0; k < truck.getOwnersToDeliver().size(); k++){ 
-			System.out.println(truck.getOwnersToDeliver().get(k).getOwnerName());
-		}
+		truck.determineOwners();  
+		truck.organizeOwner(truck.getOwnersToDeliver()); 
+		ArrayList<String> sePueden = truck.greedy(); 
+		System.out.println(sePueden);
+
 	}
 	
 }
