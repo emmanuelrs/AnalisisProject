@@ -68,8 +68,10 @@ public class Main {
 			}
 		}
 		
-		for(int j = 0; j < finalList.size(); j++){
-			System.out.println(finalList.get(j).getVolume());
+		truck.setPackagesToDeliver(finalList); 
+		truck.determineOwners(); 
+		for(int k = 0; k < truck.getOwnersToDeliver().size(); k++){ 
+			System.out.println(truck.getOwnersToDeliver().get(k).getOwnerName());
 		}
 	}
 	

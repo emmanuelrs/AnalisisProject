@@ -3,6 +3,8 @@
  */
 package Logic;
 
+import java.util.ArrayList;
+
 /**
  * @author emmanuelrosales
  *
@@ -16,8 +18,11 @@ public class Container {
 	private int containerLength;
 	private int containerWidth;
 	private int containerHeight;
-	private int volume;
+	private int volume; 
+	private ArrayList<Packages> packagesToDeliver = new ArrayList<Packages>();   
+	private ArrayList<Owner> ownersToDeliver = new ArrayList<Owner>(); 
 	
+
 	public Container(int pLength, int pWidth, int pHeight) {
 		// TODO Auto-generated constructor stub
 		setContainerLength(pLength);
@@ -69,7 +74,28 @@ public class Container {
 		this.containerHeight = containerHeight;
 	}
 
+	public ArrayList<Packages> getPackagesToDeliver() {
+		return packagesToDeliver;
+	}
+
+	public void setPackagesToDeliver(ArrayList<Packages> packagesToDeliver) {
+		this.packagesToDeliver = packagesToDeliver;
+	}
+
+	public ArrayList<Owner> getOwnersToDeliver() {
+		return ownersToDeliver;
+	}
+
+	public void setOwnersToDeliver(ArrayList<Owner> ownersToDeliver) {
+		this.ownersToDeliver = ownersToDeliver;
+	}
 	
+	public void determineOwners(){ 
+		for(int i = 0; i < getPackagesToDeliver().size(); i++ ){ 
+			ownersToDeliver.add(getPackagesToDeliver().get(i).getOwner());
+		}
+	} 
+
 
 	
 
