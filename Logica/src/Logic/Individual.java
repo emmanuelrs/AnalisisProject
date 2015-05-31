@@ -52,13 +52,11 @@ public class Individual {
 					counter++;
 				} else {
 					counter = 0;
-					break;
 				}
-				
+			this.fitness = counter;
 			}
 		}
-		this.fitness = counter;
-	}
+}
 
 	private ArrayList<Integer> createRange(int start, int end){
 		ArrayList<Integer> range = new ArrayList<Integer>();
