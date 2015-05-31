@@ -38,9 +38,8 @@ public class viewTrucks extends ActionBarActivity {
     }
     public void lista(View view){
         InsertTruck truck = new InsertTruck();
-        truck.setCamiones();
         for(int i = 0; i < truck.getCamiones().size(); i++){
-        System.out.println(truck.getCamiones().get(i));
+        System.out.println(truck.getCamiones().get(i).getVolume());
         }
     }
 }

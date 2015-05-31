@@ -4,13 +4,19 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import emmanuelrosales.packagesapp.Truck;
+import android.view.View;
 
 import java.util.ArrayList;
 
 
 public class InsertTruck extends ActionBarActivity {
 
-    static private ArrayList<Integer> camiones = new ArrayList<Integer>();
+    static private ArrayList<Truck> camiones = new ArrayList<>();
+    static private EditText getLength;
+    static private EditText getHeight;
+    static private EditText getWidth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +46,15 @@ public class InsertTruck extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static void setCamiones() {
-        camiones.add(3);
-        camiones.add(4);
-        camiones.add(5);
+    public void getValues(View view){
+        getHeight =  (EditText)findViewById(R.id.inputTuckHeight);
+        getLength =  (EditText)findViewById(R.id.inputTruckLength);
+        getWidth = (EditText)findViewById(R.id.inputTruckWidth);
+        Truck camion = new Truck(Integer.parseInt(getLength.getText().toString()),Integer.parseInt(getWidth.getText().toString()),Integer.parseInt(getHeight.getText().toString()));
+        camiones.add(camion);
     }
 
-    public static ArrayList<Integer> getCamiones() {
-
+    public static ArrayList<Truck> getCamiones() {
         return camiones;
     }
 }

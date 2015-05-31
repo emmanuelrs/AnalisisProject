@@ -4,13 +4,113 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="emmanuelrosales.packagesapp.InsertTruck">
+    tools:context="emmanuelrosales.packagesapp.InsertTruck"
+    android:background="@android:color/background_dark">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/insert"
         android:id="@+id/btnInsertTruck"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:width="200dp"
+        android:height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="47dp"
+        android:textSize="50dp"
+        android:textColor="#ffffffff"
+        android:background="#ba888888"
+        android:onClick="getValues" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/Height"
+        android:id="@+id/txtViewTruckHeight"
+        android:layout_marginTop="81dp"
+        android:textColor="#ffffffff"
+        android:width="300dp"
+        android:height="80dp"
+        android:textSize="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="62dp"
+        android:layout_marginStart="62dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Length"
+        android:id="@+id/txtViewTruckLength"
+        android:layout_below="@+id/txtViewTruckHeight"
+        android:layout_alignLeft="@+id/txtViewTruckHeight"
+        android:layout_alignStart="@+id/txtViewTruckHeight"
+        android:layout_marginTop="64dp"
+        android:width="300dp"
+        android:height="80dp"
+        android:textSize="50dp"
+        android:textColor="#ffffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Width"
+        android:id="@+id/txtViewTruckWidth"
+        android:layout_below="@+id/txtViewTruckLength"
+        android:layout_alignLeft="@+id/txtViewTruckLength"
+        android:layout_alignStart="@+id/txtViewTruckLength"
+        android:layout_marginTop="66dp"
+        android:textColor="#ffffffff"
+        android:width="300dp"
+        android:height="80dp"
+        android:textSize="50dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/inputTuckHeight"
+        android:layout_marginLeft="135dp"
+        android:layout_marginStart="135dp"
+        android:textColor="#ffffffff"
+        android:width="300dp"
+        android:height="80dp"
+        android:textSize="50dp"
+        android:background="#ba888888"
+        android:layout_alignTop="@+id/txtViewTruckHeight"
+        android:layout_alignLeft="@+id/btnInsertTruck"
+        android:layout_alignStart="@+id/btnInsertTruck" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/inputTruckLength"
+        android:textColor="#ffffffff"
+        android:width="300dp"
+        android:height="80dp"
+        android:textSize="50dp"
+        android:background="#ba888888"
+        android:layout_alignTop="@+id/txtViewTruckLength"
+        android:layout_alignLeft="@+id/inputTuckHeight"
+        android:layout_alignStart="@+id/inputTuckHeight" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/inputTruckWidth"
+        android:textColor="#ffffffff"
+        android:width="300dp"
+        android:height="80dp"
+        android:textSize="50dp"
+        android:background="#ba888888"
+        android:layout_alignBottom="@+id/txtViewTruckWidth"
+        android:layout_alignLeft="@+id/inputTruckLength"
+        android:layout_alignStart="@+id/inputTruckLength" />
 </RelativeLayout>
