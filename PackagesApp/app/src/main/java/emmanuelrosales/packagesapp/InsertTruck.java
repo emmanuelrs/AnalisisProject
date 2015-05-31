@@ -56,5 +56,6 @@ public class InsertTruck extends ActionBarActivity {
 
     public static ArrayList<Truck> getCamiones() {
         return camiones;
+
     }
 }
