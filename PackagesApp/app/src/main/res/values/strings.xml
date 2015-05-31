@@ -12,5 +12,7 @@
     <string name="title_activity_trucks">Trucks</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_insert_truck">insertTruck</string>
+    <string name="title_activity_view_trucks">viewTrucks</string>
 
 </resources>

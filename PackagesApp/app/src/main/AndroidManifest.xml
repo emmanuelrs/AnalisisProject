@@ -28,8 +28,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Trucks"
-            android:label="@string/title_activity_trucks" >
+            android:name=".InsertTruck"
+            android:label="@string/title_activity_insert_truck" >
+        </activity>
+        <activity
+            android:name=".viewTrucks"
+            android:label="@string/title_activity_view_trucks" >
         </activity>
     </application>
 
