@@ -18,10 +18,8 @@ public class Main {
 		Individual individual;
 		ArrayList<Owner> ownerList = new ArrayList<Owner>();
 		ArrayList<Packages> listOfPackages = new ArrayList<Packages>();
+		ArrayList<Packages> finalList = new ArrayList<Packages>();
 		
-		Owner owner1 = new Owner("Persona", 7, 12, "Escazu");
-		
-
 		ownerList.add(new Owner("Persona", 7, 12, "Escazu"));
 		ownerList.add(new Owner("Alguien", 9, 18, "San Jose Centro"));
 		ownerList.add(new Owner("Otro", 15, 23, "Tres Rios"));
@@ -50,6 +48,7 @@ public class Main {
 		}
 		
 		System.out.println("---------------------------------");
+		System.out.println(listOfPackages.size());
 		System.out.println("length: " + truck.getContainerLength());
 		System.out.println("width: " +  truck.getContainerWidth());
 		System.out.println("height: " + truck.getContainerHeight());
@@ -61,6 +60,17 @@ public class Main {
 		}
 		System.out.println(population.returnBestCandidate().getChromosome());
 		System.out.println(population.returnBestCandidate().getFitness());
+		individual = population.returnBestCandidate();
+		
+		for(int j = 0; j < individual.getChromosome().size(); j++){
+			if(individual.getChromosome().get(j) == 1){
+				finalList.add(listOfPackages.get(j));
+			}
+		}
+		
+		for(int j = 0; j < finalList.size(); j++){
+			System.out.println(finalList.get(j).getVolume());
+		}
 	}
 	
 }
