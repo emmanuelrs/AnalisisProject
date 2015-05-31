@@ -37,27 +37,28 @@ public class Individual {
 		}
 	}
 	
-	public void calculateFitness(ArrayList<Packages> list, double length, double width, double height){
+	public void calculateFitness(ArrayList<Packages> list, int length, int width, int height){
 		int counter = 0;
-		double p_length = length;
-		double p_width = width;
-		double p_height = height; 
-		
+		int p_length = length;
+		int p_width = width;
+		int p_height = height;
 		for(int i = 0; i < chromosome.size(); i++){
 			if(chromosome.get(i) == 1){
 				p_length -= list.get(i).getPackageLength();
 				p_width -= list.get(i).getPackageWidth();
 				p_height -= list.get(i).getPackageHeight();
-				if((p_length <= 0) && (p_width <= 0) && (p_height <= 0)){
+				
+				if (p_length >= 0 && p_width >= 0 && p_height >= 0){
 					counter++;
 				} else {
 					counter = 0;
+					break;
 				}
+				
 			}
-		}	
+		}
 		this.fitness = counter;
 	}
-	
 
 	private ArrayList<Integer> createRange(int start, int end){
 		ArrayList<Integer> range = new ArrayList<Integer>();

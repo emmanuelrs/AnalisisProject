@@ -26,9 +26,9 @@ public class Main {
 		
 		for(int i = 0; i < 5; i++){
 			Owner owner;
-			double length = 1 + (truck.getContainerLength() - 1) * random.nextDouble(); 
-			double width =  1 + (truck.getContainerWidth() - 1) * random.nextDouble();
-			double height = 1 + (truck.getContainerHeight() - 1) * random.nextDouble();
+			int length = random.nextInt(truck.getContainerLength() - 1) + 1; 
+			int width = random.nextInt(truck.getContainerWidth() - 1) + 1;
+			int height = random.nextInt(truck.getContainerHeight() - 1) + 1;
 			int number = random.nextInt(ownerList.size());
 			int deliveryLimit = random.nextInt(1);
 			
@@ -43,18 +43,16 @@ public class Main {
 			System.out.println(listOfPackages.get(i).getVolume());
 		}
 		
-		System.out.println("--------------------------------");
-		
-		for(int i = 0; i < listOfPackages.size(); i++){
-			System.out.println(listOfPackages.get(i).getVolume());
-		}
-		
 		System.out.println("---------------------------------");
+		System.out.println("volume: " + truck.getVolume());
 		
-		for(int i = 0; i < population.getListOfIndividuals().size(); i++){
-			System.out.println(population.getListOfIndividuals().get(i).getChromosome());
-			System.out.println(population.getListOfIndividuals().get(i).getFitness());
+		int i = 0;
+		while(i < 20){
+			population.generatePopulation(15, listOfPackages.size(), false, truck);
+			i++;
 		}
+		System.out.println(population.returnBestCandidate().getChromosome());
+		System.out.println(population.returnBestCandidate().getFitness());
 	}
 	
 }

@@ -13,16 +13,16 @@ public class Packages {
 	 * 
 	 */
 	
-	private double packageLength;
-	private double packageWidth;
-	private double packageHeight;
-	private double volume;
+	private int packageLength;
+	private int packageWidth;
+	private int packageHeight;
+	private int volume;
 	private int diasEntrega;
 	private String nombre; // Descripción breve del paquete.
 	private Owner Owner;
 	
 	
-	public Packages(double aPackageLength, double aPackageWidth, double aPackageHeight, int aDiasEntrega, Owner pOwner) {
+	public Packages(int aPackageLength, int aPackageWidth, int aPackageHeight, int aDiasEntrega, Owner pOwner) {
 		// TODO Auto-generated constructor stub
 		
 		setPackageLength(aPackageLength);
@@ -34,68 +34,67 @@ public class Packages {
 		
 	}
 	
-	public double returnVolume(){
+	public int returnVolume(){
 		return getPackageLength() * getPackageWidth() * getPackageHeight();
 		
+	}
+
+	public int getPackageLength() {
+		return packageLength;
+	}
+
+	public int getPackageWidth() {
+		return packageWidth;
+	}
+
+	public int getPackageHeight() {
+		return packageHeight;
+	}
+
+	public int getVolume() {
+		return volume;
 	}
 
 	public int getDiasEntrega() {
 		return diasEntrega;
 	}
 
-	public void setDiasEntrega(int diasEntrega) {
-		
-		// Si el valor de diasEntrega es igual a 0, el paquete no tiene 
-		// restricción de entrega
-		
-		this.diasEntrega = diasEntrega;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public double getPackageLength() {
-		return packageLength;
+	public Owner getOwner() {
+		return Owner;
 	}
 
-	public void setPackageLength(double packageLength) {
+	public void setPackageLength(int packageLength) {
 		this.packageLength = packageLength;
 	}
 
-	public double getPackageWidth() {
-		return packageWidth;
-	}
-
-	public double getVolume() {
-		return volume;
-	}
-
-	public void setVolume(double volume) {
-		this.volume = volume;
-	}
-
-	public void setPackageWidth(double packageWidth) {
+	public void setPackageWidth(int packageWidth) {
 		this.packageWidth = packageWidth;
 	}
 
-	public double getPackageHeight() {
-		return packageHeight;
-	}
-
-	public void setPackageHeight(double packageHeight) {
+	public void setPackageHeight(int packageHeight) {
 		this.packageHeight = packageHeight;
 	}
-	public String getNombre() {
-		return nombre;
+
+	public void setVolume(int volume) {
+		this.volume = volume;
+	}
+
+	public void setDiasEntrega(int diasEntrega) {
+		this.diasEntrega = diasEntrega;
 	}
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Owner getOwner() {
-		return Owner;
-	}
 
 	public void setOwner(Owner owner) {
 		Owner = owner;
 	}
+
 
 
 }

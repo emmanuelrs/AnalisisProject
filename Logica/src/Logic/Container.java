@@ -13,11 +13,12 @@ public class Container {
 	 * 
 	 */
 	
-	private double containerLength;
-	private double containerWidth;
-	private double containerHeight;
+	private int containerLength;
+	private int containerWidth;
+	private int containerHeight;
+	private int volume;
 	
-	public Container(double pLength, double pWidth, double pHeight) {
+	public Container(int pLength, int pWidth, int pHeight) {
 		// TODO Auto-generated constructor stub
 		setContainerLength(pLength);
 		setContainerWidth(pWidth);
@@ -31,37 +32,44 @@ public class Container {
 		// con medidas default
 		
 		setContainerLength(12);
-		setContainerWidth(3);
-		setContainerHeight(4);	
+		setContainerWidth(6);
+		setContainerHeight(6);	
+		setVolume(getContainerLength() * getContainerWidth() * getContainerHeight());
 	}
-	
-	public double getVolume(){
-		return getContainerLength() * getContainerWidth() * getContainerHeight();
+
+	public int getVolume() {
+		return volume;
 	}
-	
-	public double getContainerLength() {
+
+	public void setVolume(int volume) {
+		this.volume = volume;
+	}
+
+	public int getContainerLength() {
 		return containerLength;
 	}
 
-	public void setContainerLength(double containerLength) {
-		this.containerLength = containerLength;
-	}
-
-	public double getContainerWidth() {
+	public int getContainerWidth() {
 		return containerWidth;
 	}
 
-	public void setContainerWidth(double containerWidth) {
-		this.containerWidth = containerWidth;
-	}
-
-	public double getContainerHeight() {
+	public int getContainerHeight() {
 		return containerHeight;
 	}
 
-	public void setContainerHeight(double containerHeight) {
+	public void setContainerLength(int containerLength) {
+		this.containerLength = containerLength;
+	}
+
+	public void setContainerWidth(int containerWidth) {
+		this.containerWidth = containerWidth;
+	}
+
+	public void setContainerHeight(int containerHeight) {
 		this.containerHeight = containerHeight;
 	}
+
+	
 
 	
 

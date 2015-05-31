@@ -24,7 +24,7 @@ public class Population{
 	public ArrayList<Packages> sortArray(ArrayList<Packages> list){
 		Collections.sort(list, new Comparator<Packages>() {
          	public int compare(Packages p1, Packages p2) {
-            return Double.compare(p2.getVolume(),p1.getVolume());
+            return Double.compare(p1.getVolume(),p2.getVolume());
         }
 
     });
