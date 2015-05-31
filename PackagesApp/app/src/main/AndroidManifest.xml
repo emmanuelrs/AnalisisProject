@@ -35,6 +35,10 @@
             android:name=".viewTrucks"
             android:label="@string/title_activity_view_trucks" >
         </activity>
+        <activity
+            android:name=".InsertOwner"
+            android:label="@string/title_activity_insert_owner" >
+        </activity>
     </application>
 
 </manifest>

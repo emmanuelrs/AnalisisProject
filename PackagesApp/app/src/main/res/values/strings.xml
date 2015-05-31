@@ -16,5 +16,12 @@
     <string name="Length">Truck Length</string>
     <string name="Width">Truck Width</string>
     <string name="Home">Back Home</string>
+    <string name="title_activity_insert_owner">InsertOwner</string>
+    <string name="OwnerName">Owner Name</string>
+    <string name="OwnerAddress">Owner Address</string>
+    <string name="OwnerStart">Start Availability</string>
+    <string name="OwnerEnd">End Availability</string>
+    <string name="TravelTime">Travel Time</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

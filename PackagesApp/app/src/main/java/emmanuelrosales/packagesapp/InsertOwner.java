@@ -1,25 +1,26 @@
 package emmanuelrosales.packagesapp;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.content.Intent;
 
 
-public class MainActivity extends ActionBarActivity {
+public class InsertOwner extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_insert_owner);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_insert_owner, menu);
         return true;
     }
 
@@ -37,17 +38,8 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public void jumpInsertT(View view) {
-        Intent intent = new Intent(view.getContext(), InsertTruck.class);
+    public void jumpHome(View view) {
+        Intent intent = new Intent(view.getContext(), MainActivity.class);
         startActivityForResult(intent, 0);
-    }
-    public void jumpViewT(View view) {
-        Intent intent1 = new Intent(view.getContext(), viewTrucks.class);
-        startActivityForResult(intent1, 0);
-    }
-    public void jumpInsertOwner(View view) {
-        Intent intent2 = new Intent(view.getContext(), InsertOwner.class);
-        startActivityForResult(intent2, 0);
     }
 }

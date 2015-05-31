@@ -140,7 +140,8 @@
         android:layout_alignLeft="@+id/InsertT"
         android:layout_alignStart="@+id/InsertT"
         android:textSize="50dp"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:onClick="jumpInsertOwner" />
 
     <Button
         android:layout_width="wrap_content"

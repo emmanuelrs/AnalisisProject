@@ -1,0 +1,182 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="emmanuelrosales.packagesapp.InsertOwner"
+    android:background="@android:color/background_dark">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputAddress"
+        android:width="450dp"
+        android:height="60dp"
+        android:textSize="50dp"
+        android:textColor="#ffffffff"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@+id/textOwnerName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputOwnerName"
+        android:width="450dp"
+        android:height="60dp"
+        android:textSize="50dp"
+        android:textColor="#ffffffff"
+        android:background="@android:color/darker_gray"
+        android:layout_marginLeft="116dp"
+        android:layout_marginStart="116dp"
+        android:layout_below="@+id/textOwnerName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputStart"
+        android:width="450dp"
+        android:height="60dp"
+        android:textSize="50dp"
+        android:textColor="#ffffffff"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@+id/inputOwnerName"
+        android:layout_alignLeft="@+id/inputOwnerName"
+        android:layout_alignStart="@+id/inputOwnerName"
+        android:layout_marginTop="93dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputEnd"
+        android:width="450dp"
+        android:height="60dp"
+        android:textSize="50dp"
+        android:textColor="#ffffffff"
+        android:background="@android:color/darker_gray"
+        android:layout_alignTop="@+id/inputStart"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputTravel"
+        android:width="450dp"
+        android:height="60dp"
+        android:textSize="50dp"
+        android:textColor="#ffffffff"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@+id/inputStart"
+        android:layout_alignLeft="@+id/inputStart"
+        android:layout_alignStart="@+id/inputStart"
+        android:layout_marginTop="93dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/OwnerName"
+        android:id="@+id/textOwnerName"
+        android:height="70dp"
+        android:width="350dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/inputOwnerName"
+        android:layout_alignStart="@+id/inputOwnerName"
+        android:textColor="#ffffffff"
+        android:textSize="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/OwnerAddress"
+        android:id="@+id/textOwnerAddress"
+        android:height="70dp"
+        android:width="350dp"
+        android:textColor="#ffffffff"
+        android:textSize="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_alignTop="@+id/textOwnerName"
+        android:layout_alignLeft="@+id/inputAddress"
+        android:layout_alignStart="@+id/inputAddress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/OwnerStart"
+        android:id="@+id/textOwnerStart"
+        android:height="70dp"
+        android:width="270dp"
+        android:textColor="#ffffffff"
+        android:textSize="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/inputOwnerName"
+        android:layout_alignRight="@+id/inputStart"
+        android:layout_alignEnd="@+id/inputStart" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/OwnerEnd"
+        android:id="@+id/textOwnerEnd"
+        android:height="70dp"
+        android:width="350dp"
+        android:textColor="#ffffffff"
+        android:textSize="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_alignTop="@+id/textOwnerStart"
+        android:layout_alignLeft="@+id/inputEnd"
+        android:layout_alignStart="@+id/inputEnd" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/TravelTime"
+        android:id="@+id/textOwnerTravelTime"
+        android:height="70dp"
+        android:width="350dp"
+        android:textColor="#ffffffff"
+        android:textSize="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/inputStart"
+        android:layout_alignLeft="@+id/textOwnerName"
+        android:layout_alignStart="@+id/textOwnerName" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Home"
+        android:id="@+id/buttonBackHomeOwner"
+        android:width="300dp"
+        android:height="80dp"
+        android:layout_below="@+id/textOwnerTravelTime"
+        android:layout_alignLeft="@+id/textOwnerEnd"
+        android:layout_alignStart="@+id/textOwnerEnd"
+        android:background="#ffff0202"
+        android:textColor="#ffffffff"
+        android:textSize="50dp"
+        android:onClick="jumpHome" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/insert"
+        android:id="@+id/buttonInsertOwner"
+        android:width="200dp"
+        android:height="80dp"
+        android:textSize="50dp"
+        android:textColor="#ffffffff"
+        android:background="#ba888888"
+        android:onClick="getValues"
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
