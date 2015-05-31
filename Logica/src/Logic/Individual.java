@@ -42,21 +42,40 @@ public class Individual {
 		int p_length = length;
 		int p_width = width;
 		int p_height = height;
+		Subspace subspace_remaining = new Subspace();
+		Subspace subspace_right = new Subspace();
+		Subspace subspace_up = new Subspace();
+		boolean firstPackage = false;
 		for(int i = 0; i < chromosome.size(); i++){
-			if(chromosome.get(i) == 1){
-				p_length -= list.get(i).getPackageLength();
-				p_width -= list.get(i).getPackageWidth();
-				p_height -= list.get(i).getPackageHeight();
-				
-				if (p_length >= 0 && p_width >= 0 && p_height >= 0){
+			if(chromosome.get(i) == 1 && !firstPackage){
+				subspace_remaining = new Subspace(p_length-list.get(i).getPackageLength(), p_width, p_height);
+				subspace_right = new Subspace(p_length, p_width-list.get(i).getPackageWidth(),p_height);
+				subspace_up = new Subspace(p_length, p_width,p_height-list.get(i).getPackageHeight());
+				counter++;
+				firstPackage = true;
+			} else if (chromosome.get(i) == 1){
+				if(subspace_remaining.getLength() - list.get(i).getPackageLength() >= 0  && 
+						subspace_remaining.getWidth() - list.get(i).getPackageWidth() >= 0 && 
+						subspace_remaining.getHeight() - list.get(i).getPackageHeight() >= 0 && !subspace_remaining.isFull()){
+					subspace_remaining.setFull(true);
+					counter++;
+				} else if(subspace_right.getLength() - list.get(i).getPackageLength() >= 0  && 
+						subspace_right.getWidth() - list.get(i).getPackageWidth() >= 0 && 
+						subspace_right.getHeight() - list.get(i).getPackageHeight() >= 0 && !subspace_remaining.isFull()){
+					subspace_right.setFull(true);
+					counter++;
+				} else if(subspace_up.getLength() - list.get(i).getPackageLength() >= 0  && 
+						subspace_up.getWidth() - list.get(i).getPackageWidth() >= 0 && 
+						subspace_up.getHeight() - list.get(i).getPackageHeight() >= 0 && !subspace_remaining.isFull()){
+					subspace_up.setFull(true);
 					counter++;
 				} else {
 					counter = 0;
 				}
-			this.fitness = counter;
 			}
 		}
-}
+			this.fitness = counter;
+	}
 
 	private ArrayList<Integer> createRange(int start, int end){
 		ArrayList<Integer> range = new ArrayList<Integer>();
