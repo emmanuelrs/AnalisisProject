@@ -54,23 +54,24 @@ public class Individual {
 				counter++;
 				firstPackage = true;
 			} else if (chromosome.get(i) == 1){
-				if(subspace_remaining.getLength() - list.get(i).getPackageLength() >= 0  && 
-						subspace_remaining.getWidth() - list.get(i).getPackageWidth() >= 0 && 
-						subspace_remaining.getHeight() - list.get(i).getPackageHeight() >= 0 && !subspace_remaining.isFull()){
-					subspace_remaining.setFull(true);
-					counter++;
-				} else if(subspace_right.getLength() - list.get(i).getPackageLength() >= 0  && 
-						subspace_right.getWidth() - list.get(i).getPackageWidth() >= 0 && 
-						subspace_right.getHeight() - list.get(i).getPackageHeight() >= 0 && !subspace_remaining.isFull()){
+				p_length = list.get(i).getPackageLength();
+				p_width = list.get(i).getPackageWidth();
+				p_height = list.get(i).getPackageHeight();
+				if(subspace_right.getLength() - p_length >= 0  && subspace_right.getWidth() - p_width >= 0 && subspace_right.getHeight() - p_height  >= 0 
+						 && !subspace_right.isFull()){
 					subspace_right.setFull(true);
 					counter++;
-				} else if(subspace_up.getLength() - list.get(i).getPackageLength() >= 0  && 
-						subspace_up.getWidth() - list.get(i).getPackageWidth() >= 0 && 
-						subspace_up.getHeight() - list.get(i).getPackageHeight() >= 0 && !subspace_remaining.isFull()){
+				} else if(subspace_up.getLength() - p_length  >= 0  && subspace_up.getWidth() - p_width >= 0 && subspace_up.getHeight() - p_height  >= 0  
+						&& !subspace_up.isFull()){
 					subspace_up.setFull(true);
+					counter++;
+				} else if(subspace_remaining.getLength() -  p_length  >= 0  && subspace_remaining.getWidth() - p_width >= 0 && subspace_remaining.getHeight() - p_height  >= 0 
+						&& !subspace_remaining.isFull()){
+					subspace_remaining.setFull(true);
 					counter++;
 				} else {
 					counter = 0;
+					break;
 				}
 			}
 		}
