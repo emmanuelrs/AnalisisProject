@@ -15,5 +15,6 @@
     <string name="Height">Truck Height</string>
     <string name="Length">Truck Length</string>
     <string name="Width">Truck Width</string>
+    <string name="Home">Back Home</string>
 
 </resources>
