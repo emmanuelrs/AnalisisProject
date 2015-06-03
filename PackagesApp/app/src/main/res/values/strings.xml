@@ -24,5 +24,7 @@
     <string name="TravelTime">Travel Time</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_view_owner">ViewOwner</string>
+    <string name="title_activity_insert_package">InsertPackage</string>
+    <string name="title_activity_view_package">ViewPackage</string>
 
 </resources>

@@ -43,6 +43,14 @@
             android:name=".ViewOwner"
             android:label="@string/title_activity_view_owner" >
         </activity>
+        <activity
+            android:name=".InsertPackage"
+            android:label="@string/title_activity_insert_package" >
+        </activity>
+        <activity
+            android:name=".ViewPackage"
+            android:label="@string/title_activity_view_package" >
+        </activity>
     </application>
 
 </manifest>
