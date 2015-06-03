@@ -59,7 +59,7 @@ public class MainActivity extends ActionBarActivity {
         startActivityForResult(intent2, 0);
     }
     public void jumpViewPackage(View view) {
-        Intent intent2 = new Intent(view.getContext(), ViewPackage.class);
-        startActivityForResult(intent2, 0);
+        Intent intent5 = new Intent(view.getContext(), ViewPackage.class);
+        startActivityForResult(intent5, 0);
     }
 }

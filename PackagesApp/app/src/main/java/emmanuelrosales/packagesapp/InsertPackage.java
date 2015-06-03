@@ -93,14 +93,15 @@ public class InsertPackage extends ActionBarActivity {
         getWidth = (EditText)findViewById(R.id.inputPHeight);
         getDescription =(EditText)findViewById(R.id.inpuPname);
         getDate = (EditText)findViewById(R.id.inputDiasEntrega);
-       // Package paquete = new Package(Integer.parseInt(getLength.getText().toString()),Integer.parseInt(getWidth.getText().toString()),
-         //       Integer.parseInt(getHeight.getText().toString()),Integer.parseInt(getDate.getText().toString()),duenno);
-        //paquetes.add(paquete);
-        txtLength = (TextView) findViewById(R.id.inputTruckLength);
+        System.out.println(getHeight.getText());
+        Package paquete = new Package(Integer.parseInt(getLength.getText().toString()),Integer.parseInt(getWidth.getText().toString()),
+                Integer.parseInt(getHeight.getText().toString()),Integer.parseInt(getDate.getText().toString()),duenno);
+        paquetes.add(paquete);
+        txtLength = (TextView)findViewById(R.id.inputPLenght);
         txtLength.setText("");
-        txtHeight = (TextView) findViewById(R.id.inputTuckHeight);
+        txtHeight = (TextView)findViewById(R.id.inputPHeight);
         txtHeight.setText("");
-        txttWidth = (TextView) findViewById(R.id.inputTruckWidth);
+        txttWidth = (TextView)findViewById(R.id.inputPWidth);
         txttWidth.setText("");
         txtDate = (TextView)findViewById(R.id.inputDiasEntrega);
         txtDate.setText("");
