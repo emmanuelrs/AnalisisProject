@@ -107,7 +107,8 @@
         android:layout_alignBottom="@+id/txtClients"
         android:layout_alignLeft="@+id/ViewT"
         android:layout_alignStart="@+id/ViewT"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:onClick="jumpViewOwner" />
 
     <Button
         android:layout_width="wrap_content"
