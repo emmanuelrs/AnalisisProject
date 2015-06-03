@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -80,18 +81,21 @@ public class InsertPackage extends ActionBarActivity {
         return paquetes;
     }
 
-    public void getVal(View view){
-        Spinner mySpinner = (Spinner)findViewById(R.id.spinner);
+    public void getValP(View view){
+
+       Spinner mySpinner = (Spinner)findViewById(R.id.spinner);
         String txtFromSpinner = mySpinner.getSelectedItem().toString();
         Owner duenno = returnOwner(txtFromSpinner);
+
+
         getHeight =  (EditText)findViewById(R.id.inputPHeight);
         getLength =  (EditText)findViewById(R.id.inputPLenght);
         getWidth = (EditText)findViewById(R.id.inputPHeight);
         getDescription =(EditText)findViewById(R.id.inpuPname);
         getDate = (EditText)findViewById(R.id.inputDiasEntrega);
-        Package paquete = new Package(Integer.parseInt(getLength.getText().toString()),Integer.parseInt(getWidth.getText().toString()),
-                Integer.parseInt(getHeight.getText().toString()),Integer.parseInt(getDate.getText().toString()),duenno);
-        paquetes.add(paquete);
+       // Package paquete = new Package(Integer.parseInt(getLength.getText().toString()),Integer.parseInt(getWidth.getText().toString()),
+         //       Integer.parseInt(getHeight.getText().toString()),Integer.parseInt(getDate.getText().toString()),duenno);
+        //paquetes.add(paquete);
         txtLength = (TextView) findViewById(R.id.inputTruckLength);
         txtLength.setText("");
         txtHeight = (TextView) findViewById(R.id.inputTuckHeight);

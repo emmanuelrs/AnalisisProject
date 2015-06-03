@@ -126,7 +126,7 @@
         android:textSize="50dp"
         android:textColor="#ffffffff"
         android:background="#ba888888"
-        android:onClick="getVal"
+        android:onClick="getValP"
         android:layout_above="@+id/btnHomeInserP"
         android:layout_centerHorizontal="true" />
 

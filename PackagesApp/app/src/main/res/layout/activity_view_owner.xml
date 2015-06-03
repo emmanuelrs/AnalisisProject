@@ -40,7 +40,7 @@
         android:textColor="#ffffffff"
         android:width="150dp"
         android:height="70dp"
-        android:onClick="jumpHome"
+        android:onClick="jumpHomeO"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
