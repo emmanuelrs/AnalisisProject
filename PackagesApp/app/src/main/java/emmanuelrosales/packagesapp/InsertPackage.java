@@ -4,14 +4,29 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 
 public class InsertPackage extends ActionBarActivity {
-
+    private String array_spinner[];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert_package);
+
+        InsertOwner cliente = new InsertOwner();
+
+        array_spinner=new String[cliente.getClientes().size() + 1];
+        array_spinner[0]="Choice a Owner";
+        for(int i = 0; i < cliente.getClientes().size(); i++){
+            array_spinner[ i + 1] = cliente.getClientes().get(i).getOwnerName().toString();
+        }
+        
+        Spinner s = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter adapter = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, array_spinner);
+        s.setAdapter(adapter);
     }
 
     @Override

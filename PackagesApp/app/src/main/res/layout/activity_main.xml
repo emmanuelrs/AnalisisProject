@@ -153,7 +153,8 @@
         android:layout_above="@+id/txtRoute"
         android:layout_alignLeft="@+id/InsertC"
         android:layout_alignStart="@+id/InsertC"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:onClick="jumpInsertPackage" />
 
     <Button
         android:layout_width="wrap_content"

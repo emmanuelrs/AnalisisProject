@@ -54,4 +54,8 @@ public class MainActivity extends ActionBarActivity {
         Intent intent2 = new Intent(view.getContext(), ViewOwner.class);
         startActivityForResult(intent2, 0);
     }
+    public void jumpInsertPackage(View view) {
+        Intent intent2 = new Intent(view.getContext(), InsertPackage.class);
+        startActivityForResult(intent2, 0);
+    }
 }
