@@ -12,6 +12,8 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.SimpleTimeZone;
+
 
 public class ViewPackage extends ActionBarActivity {
 
@@ -29,14 +31,15 @@ public class ViewPackage extends ActionBarActivity {
         int j = 0;
         for(int i = 0; i < paquete.getPaquetes().size(); i++){
             letters[j] = String.valueOf(paquete.getPaquetes().get(i).getNombre());
-            letters[j+1] = String.valueOf(paquete.getPaquetes().get(i).getOwner());
-            letters[j+2] = String.valueOf(paquete.getPaquetes().get(i).getPackageHeight());
-            letters[j+3] = String.valueOf(paquete.getPaquetes().get(i).getPackageLength());
-            letters[j+4] = String.valueOf(paquete.getPaquetes().get(i).getPackageWidth());
-            letters[j+4] = String.valueOf(paquete.getPaquetes().get(i).getDiasEntrega());
+            letters[j+1] = String.valueOf((paquete.getPaquetes().get(i).getOwner().getOwnerName()));
+            letters[j+2] = String.valueOf(Integer.toString(paquete.getPaquetes().get(i).getPackageHeight()));
+            letters[j+3] = String.valueOf(Integer.toString(paquete.getPaquetes().get(i).getPackageLength()));
+            letters[j+4] = String.valueOf(Integer.toString(paquete.getPaquetes().get(i).getPackageWidth()));
+            letters[j+5] = String.valueOf(Integer.toString(paquete.getPaquetes().get(i).getDiasEntrega()));
             j = j + 6;
         }
-        grid = (GridView) findViewById(R.id.gridViewOwners);
+        System.out.println(letters[1]);
+        grid =(GridView) findViewById(R.id.gridViewPackage);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, letters);
         grid.setAdapter(adapter);
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {

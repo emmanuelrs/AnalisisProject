@@ -11,11 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/gridViewPackage"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:choiceMode="multipleChoice"
         android:numColumns="6"
+        android:layout_below="@+id/txtViewP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true" />
 
     <Button
@@ -31,4 +31,17 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paquete     Dueño        Height       Length       Width      Delivery"
+        android:id="@+id/txtViewP"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:width="1200dp"
+        android:height="65dp"
+        android:textColor="#ffffffff"
+        android:textSize="40dp" />
 </RelativeLayout>
