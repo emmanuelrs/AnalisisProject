@@ -79,6 +79,7 @@ public class InsertTruck extends ActionBarActivity {
 
     }
 
+
     public void jumpHome(View view) {
         Intent intent = new Intent(view.getContext(), MainActivity.class);
         startActivityForResult(intent, 0);

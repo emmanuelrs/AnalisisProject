@@ -1,17 +1,50 @@
 package emmanuelrosales.packagesapp;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class ViewPackage extends ActionBarActivity {
+
+    InsertPackage paquete = new InsertPackage();
+    String[] letters = new String[(paquete.getPaquetes().size() * 6)];
+    GridView grid;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_package);
+
+        int j = 0;
+        for(int i = 0; i < paquete.getPaquetes().size(); i++){
+            letters[j] = String.valueOf(paquete.getPaquetes().get(i).getNombre());
+            letters[j+1] = String.valueOf(paquete.getPaquetes().get(i).getOwner());
+            letters[j+2] = String.valueOf(paquete.getPaquetes().get(i).getPackageHeight());
+            letters[j+3] = String.valueOf(paquete.getPaquetes().get(i).getPackageLength());
+            letters[j+4] = String.valueOf(paquete.getPaquetes().get(i).getPackageWidth());
+            letters[j+4] = String.valueOf(paquete.getPaquetes().get(i).getDiasEntrega());
+            j = j + 6;
+        }
+        grid = (GridView) findViewById(R.id.gridViewOwners);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, letters);
+        grid.setAdapter(adapter);
+        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
+                Toast.makeText(getApplicationContext(),
+                        ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -34,5 +67,9 @@ public class ViewPackage extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void jumpHome(View view) {
+        Intent intent = new Intent(view.getContext(), MainActivity.class);
+        startActivityForResult(intent, 0);
     }
 }

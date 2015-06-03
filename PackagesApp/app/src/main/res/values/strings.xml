@@ -26,5 +26,9 @@
     <string name="title_activity_view_owner">ViewOwner</string>
     <string name="title_activity_insert_package">InsertPackage</string>
     <string name="title_activity_view_package">ViewPackage</string>
+    <string name="packageLenght">Package Length</string>
+    <string name="packageHeight">Package Height</string>
+    <string name="packageWidth">Package Width</string>
+    <string name="packageDescription">Package Description</string>
 
 </resources>
