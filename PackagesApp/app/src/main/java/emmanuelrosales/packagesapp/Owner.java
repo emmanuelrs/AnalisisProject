@@ -22,6 +22,10 @@ public class Owner {
 
     }
 
+    public Owner(){
+
+    }
+
     public String getOwnerName() {
         return ownerName;
     }

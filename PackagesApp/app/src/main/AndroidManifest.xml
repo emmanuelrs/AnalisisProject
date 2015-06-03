@@ -39,6 +39,10 @@
             android:name=".InsertOwner"
             android:label="@string/title_activity_insert_owner" >
         </activity>
+        <activity
+            android:name=".ViewOwner"
+            android:label="@string/title_activity_view_owner" >
+        </activity>
     </application>
 
 </manifest>
