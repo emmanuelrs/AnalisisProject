@@ -10,16 +10,18 @@ public class Truck {
     private int containerHeight;
     private int volume;
     private int idTruck;
+    private static int counter = 0;
 
 
 
-    public Truck(int idTruck,int pLength, int pWidth, int pHeight){
+    public Truck(int pLength, int pWidth, int pHeight){
 
+        counter++;
         setContainerLength(pLength);
         setContainerWidth(pWidth);
         setContainerHeight(pHeight);
         setVolume(getContainerLength() * getContainerWidth() * getContainerHeight());
-        setIdTruck(idTruck);
+        setIdTruck(counter);
 
     }
 

@@ -50,16 +50,36 @@ public class InsertTruck extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void InsertCTipo1(){
-        Truck camion = new Truck(16,30,34);
-    }
-    public void InsertCTipo2(){
-        Truck camion = new Truck(20,40,46);
+    public void InsertCTipo1(View view){
+        try{
+            Truck camion = new Truck(16,30,34);
+            camiones.add(camion);
+            mensaje();
+        }
+        catch(Exception e){
+            mensajeError();
+        }
 
     }
-    public void InsertCTipo3(){
-        Truck camion = new Truck(26,46,50);
-
+    public void InsertCTipo2(View view){
+        try{
+            Truck camion = new Truck(20,40,46);
+            camiones.add(camion);
+            mensaje();
+        }
+        catch(Exception e) {
+            mensajeError();
+        }
+    }
+    public void InsertCTipo3(View view){
+        try{
+            Truck camion = new Truck(26,46,50);
+            camiones.add(camion);
+            mensaje();
+        }
+        catch (Exception e) {
+            mensajeError();
+        }
     }
 
     public void mensaje(){
@@ -76,22 +96,11 @@ public class InsertTruck extends ActionBarActivity {
 
     }
 
-    public void getValues(View view){
-        getHeight =  (EditText)findViewById(R.id.inputTuckHeight);
-        getLength =  (EditText)findViewById(R.id.inputTruckLength);
-        getWidth = (EditText)findViewById(R.id.inputTruckWidth);
-        Truck camion = new Truck(Integer.parseInt(getLength.getText().toString()),Integer.parseInt(getWidth.getText().toString()),Integer.parseInt(getHeight.getText().toString()));
-        camiones.add(camion);
-        txtLength = (TextView) findViewById(R.id.inputTruckLength);
-        txtLength.setText("");
-        txtHeight = (TextView) findViewById(R.id.inputTuckHeight);
-        txtHeight.setText("");
-        txttWidth = (TextView) findViewById(R.id.inputTruckWidth);
-        txttWidth.setText("");
+    public void mensajeError(){
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("Truck Added");
-        alertDialog.setMessage("Congratulations a new truck was added");
-        alertDialog.setButton("Thank you", new DialogInterface.OnClickListener() {
+        alertDialog.setTitle("Sorry, an error occurred");
+        alertDialog.setMessage("Please try again");
+        alertDialog.setButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 alertDialog.dismiss();
             }
