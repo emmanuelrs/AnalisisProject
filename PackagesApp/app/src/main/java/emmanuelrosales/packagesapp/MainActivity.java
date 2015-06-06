@@ -62,4 +62,8 @@ public class MainActivity extends ActionBarActivity {
         Intent intent5 = new Intent(view.getContext(), ViewPackage.class);
         startActivityForResult(intent5, 0);
     }
+    public void jumpViewRoute(View view) {
+        Intent intent6 = new Intent(view.getContext(), Routes.class);
+        startActivityForResult(intent6, 0);
+    }
 }

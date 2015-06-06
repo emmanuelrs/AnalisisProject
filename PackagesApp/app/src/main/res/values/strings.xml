@@ -30,5 +30,6 @@
     <string name="packageHeight">Package Height</string>
     <string name="packageWidth">Package Width</string>
     <string name="packageDescription">Package Description</string>
+    <string name="title_activity_routes">Routes</string>
 
 </resources>

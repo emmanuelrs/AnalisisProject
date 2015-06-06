@@ -51,6 +51,10 @@
             android:name=".ViewPackage"
             android:label="@string/title_activity_view_package" >
         </activity>
+        <activity
+            android:name=".Routes"
+            android:label="@string/title_activity_routes" >
+        </activity>
     </application>
 
 </manifest>
