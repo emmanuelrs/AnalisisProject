@@ -21,8 +21,8 @@ public class Container {
 	private int containerWidth;
 	private int containerHeight;
 	private int volume; 
-	private static ArrayList<Packages> packagesToDeliver = new ArrayList<Packages>();   
-	private static ArrayList<Owner> ownersToDeliver = new ArrayList<Owner>();  
+	private ArrayList<Packages> packagesToDeliver = new ArrayList<Packages>();   
+	private ArrayList<Owner> ownersToDeliver = new ArrayList<Owner>();  
 	private static ArrayList<String> paquetesEntregados = new ArrayList<String>();
 	
 
@@ -79,6 +79,14 @@ public class Container {
 
 	public ArrayList<Packages> getPackagesToDeliver() {
 		return packagesToDeliver;
+	}
+
+	public static ArrayList<String> getPaquetesEntregados() {
+		return paquetesEntregados;
+	}
+
+	public static void setPaquetesEntregados(ArrayList<String> paquetesEntregados) {
+		Container.paquetesEntregados = paquetesEntregados;
 	}
 
 	public void setPackagesToDeliver(ArrayList<Packages> packagesToDeliver) {
