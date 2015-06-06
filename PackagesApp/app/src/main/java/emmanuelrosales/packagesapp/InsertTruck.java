@@ -50,6 +50,32 @@ public class InsertTruck extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void InsertCTipo1(){
+        Truck camion = new Truck(16,30,34);
+    }
+    public void InsertCTipo2(){
+        Truck camion = new Truck(20,40,46);
+
+    }
+    public void InsertCTipo3(){
+        Truck camion = new Truck(26,46,50);
+
+    }
+
+    public void mensaje(){
+        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle("Truck Added");
+        alertDialog.setMessage("Congratulations a new truck was added");
+        alertDialog.setButton("Thank you", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
+
+    }
+
     public void getValues(View view){
         getHeight =  (EditText)findViewById(R.id.inputTuckHeight);
         getLength =  (EditText)findViewById(R.id.inputTruckLength);

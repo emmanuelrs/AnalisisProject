@@ -9,37 +9,25 @@ public class Truck {
     private int containerWidth;
     private int containerHeight;
     private int volume;
+    private int idTruck;
 
-    public Truck(int pLength, int pWidth, int pHeight){
+
+
+    public Truck(int idTruck,int pLength, int pWidth, int pHeight){
+
         setContainerLength(pLength);
         setContainerWidth(pWidth);
         setContainerHeight(pHeight);
         setVolume(getContainerLength() * getContainerWidth() * getContainerHeight());
+        setIdTruck(idTruck);
 
     }
-    public Truck() {
-        // TODO Auto-generated constructor stub
 
-        // Si no se quiere poner un tamaÑo especifico se crea uno
-        // con medidas default
+    public int getVolume(){return volume;}
 
-        setContainerLength(12);
-        setContainerWidth(6);
-        setContainerHeight(6);
-        setVolume(getContainerLength() * getContainerWidth() * getContainerHeight());
-    }
+    public void setVolume(int volume){this.volume = volume;}
 
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    public int getContainerLength() {
-        return containerLength;
-    }
+    public int getContainerLength(){return containerLength;}
 
     public int getContainerWidth() {
         return containerWidth;
@@ -61,6 +49,7 @@ public class Truck {
         this.containerHeight = containerHeight;
     }
 
+    public void setIdTruck(int idTruck) {this.idTruck = idTruck;}
 
-
+    public int getIdTruck() { return idTruck; }
 }
