@@ -108,7 +108,31 @@ public class Truck {
         this.containerHeight = containerHeight;
     }
 
-    public void setIdTruck(int idTruck) {this.idTruck = idTruck;}
+    public void setIdTruck(int idTruck) {this.idTruck = idTruck;
+    }
 
-    public int getIdTruck() { return idTruck; }
+    public int getIdTruck() { return idTruck;
+    }
+    public ArrayList<DeliveryPackage> getPackagesToDeliver() {
+        return packagesToDeliver;
+    }
+
+    public ArrayList<DeliveryPackage> getOtherPackages() {
+        return otherPackages;
+    }
+
+    public ArrayList<DeliveryPackage> getPossibleDeliveries() {
+        return possibleDeliveries;
+    }
+    public void setPackagesToDeliver(ArrayList<DeliveryPackage> packagesToDeliver) {
+        this.packagesToDeliver = packagesToDeliver;
+    }
+
+    public void setOtherPackages(ArrayList<DeliveryPackage> otherPackages) {
+        this.otherPackages = otherPackages;
+    }
+
+    public void setPossibleDeliveries(ArrayList<DeliveryPackage> possibleDeliveries) {
+        this.possibleDeliveries = possibleDeliveries;
+    }
 }

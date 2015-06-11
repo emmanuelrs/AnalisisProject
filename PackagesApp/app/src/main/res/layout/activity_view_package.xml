@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Paquete     Dueño        Height       Length       Width      Delivery"
+        android:text="Package     Owner        Height       Length       Width      Delivery"
         android:id="@+id/txtViewP"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -44,4 +44,5 @@
         android:height="65dp"
         android:textColor="#ffffffff"
         android:textSize="40dp" />
+
 </RelativeLayout>

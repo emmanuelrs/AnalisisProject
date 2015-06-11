@@ -24,7 +24,6 @@ public class InsertPackage extends ActionBarActivity {
     static private EditText getWidth;
     static private EditText getDescription;
     static private EditText getDate;
-
     static private TextView txtLength;
     static private TextView txtHeight;
     static private TextView txttWidth;
@@ -115,6 +114,9 @@ public class InsertPackage extends ActionBarActivity {
 
         alertDialog.show();
 
+    }
+    public static void setPaquetes(DeliveryPackage paquete) {
+        paquetes.add(paquete);
     }
 
     public void jumpHome(View view) {
