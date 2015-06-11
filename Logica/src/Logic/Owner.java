@@ -9,10 +9,6 @@ package Logic;
  */
 public class Owner {
 
-	/**
-	 * 
-	 */
-	
 	private String ownerName;
 	private int startAvailablity;
 	private int endAvailablity;
@@ -27,6 +23,11 @@ public class Owner {
 		setStartAvailablity(pStart);
 		setEndAvailablity(pEnd);
 		setAddress(pAddress);
+		
+	}
+	
+	
+	public Owner(){
 		
 	}
 	
@@ -78,6 +79,48 @@ public class Owner {
 		this.travelTime = travelTime;
 	}
 
-	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result + dispacheTime;
+		result = prime * result + endAvailablity;
+		result = prime * result
+				+ ((ownerName == null) ? 0 : ownerName.hashCode());
+		result = prime * result + startAvailablity;
+		result = prime * result + travelTime;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Owner other = (Owner) obj;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
+		if (dispacheTime != other.dispacheTime)
+			return false;
+		if (endAvailablity != other.endAvailablity)
+			return false;
+		if (ownerName == null) {
+			if (other.ownerName != null)
+				return false;
+		} else if (!ownerName.equals(other.ownerName))
+			return false;
+		if (startAvailablity != other.startAvailablity)
+			return false;
+		if (travelTime != other.travelTime)
+			return false;
+		return true;
+	}
 
 }

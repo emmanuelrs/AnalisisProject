@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class Individual {
 	private ArrayList<Integer> chromosome;
+	private ArrayList<Packages> phenotype;
 	private int fitness;
 	
 	/* Generates an individual based on the size of the solution
@@ -99,6 +100,38 @@ public class Individual {
 		return range;
 	}
 	
+	public void calculatePhenotype(ArrayList<Packages> listOfPackages){
+		phenotype = new ArrayList<Packages>();
+		for(int i = 0; i < listOfPackages.size(); i++){
+			if(chromosome.get(i) == 1){
+				phenotype.add(listOfPackages.get(i));
+			}
+		}
+	}
+	
+	
+	public void eliminatePackages(ArrayList<Packages> listOfPackages){
+		int i = 0; 
+		int index = 0;
+		while(i < getFitness()){
+			if (chromosome.get(index) == 1){
+				listOfPackages.remove(index);
+				i++;
+			} else {
+				index += 1;
+			}
+		}
+	}
+	
+	
+	public ArrayList<Packages> getPhenotype() {
+		return phenotype;
+	}
+
+	public void setFitness(int fitness) {
+		this.fitness = fitness;
+	}
+
 	public void setChromosome(ArrayList<Integer> chromosome) {
 		this.chromosome = chromosome;
 	}

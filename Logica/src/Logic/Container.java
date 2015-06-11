@@ -22,8 +22,8 @@ public class Container {
 	private int containerHeight;
 	private int volume; 
 	private ArrayList<Packages> packagesToDeliver = new ArrayList<Packages>();   
-	private ArrayList<Owner> ownersToDeliver = new ArrayList<Owner>();  
-	private static ArrayList<String> paquetesEntregados = new ArrayList<String>();
+	private ArrayList<Packages> otherPackages = new ArrayList<Packages>();  
+	private ArrayList<Packages> paquetesEntregados = new ArrayList<Packages>();
 	
 
 	public Container(int pLength, int pWidth, int pHeight) {
@@ -45,6 +45,56 @@ public class Container {
 		setVolume(getContainerLength() * getContainerWidth() * getContainerHeight());
 	}
 
+	
+	
+	public void organizeOwner(ArrayList<Packages> list){
+		Collections.sort(list, new Comparator<Packages>() {
+         	public int compare(Packages p1, Packages p2) {
+            return Double.compare(p1.getOwner().getStartAvailablity(), p2.getOwner().getStartAvailablity());
+        }
+		}); 
+    }
+	
+	public ArrayList<Packages> greedy(int amount){   
+		organizeOwner(packagesToDeliver);   
+		int indice = 0; 
+		Owner firstOwner = new Owner();
+		Owner secondOwner = new Owner();
+		paquetesEntregados.add(packagesToDeliver.get(0));
+		
+		for(int i = 1; i < packagesToDeliver.size(); i++){ 
+			firstOwner = packagesToDeliver.get(indice).getOwner();
+			secondOwner = packagesToDeliver.get(i).getOwner();
+			if(firstOwner.getStartAvailablity() + firstOwner.getTravelTime() + firstOwner.getDispacheTime() <= secondOwner.getStartAvailablity() || firstOwner.equals(secondOwner)){  
+				paquetesEntregados.add(packagesToDeliver.get(i)); 
+				indice = i;
+			} else {
+				otherPackages.add(packagesToDeliver.get(i));
+			}
+		}  
+		if(paquetesEntregados.size() == amount){ 
+			System.out.println("Todos los paquetes se pueden entregar."); 
+			System.out.println("--------------------------------");
+			System.out.println("Paquetes a entregar: " + paquetesEntregados.size());
+			return paquetesEntregados; 
+		} else if (paquetesEntregados.size() != amount && paquetesEntregados.size() != 0) {
+			System.out.println("Se pueden entregar algunos paquetes.");
+			System.out.println("--------------------------------");
+			System.out.println("Paquetes a entregar: " + paquetesEntregados.size());
+			System.out.println("--------------------------------");
+			System.out.println("Paquetes que no se pueden entregar: " + otherPackages.size());
+			return paquetesEntregados;
+		} else {
+			System.out.println("No se puede entregar ningun paquete.");
+			return null;		
+		}
+	
+	}
+	
+	public void addPackages(ArrayList<Packages> listOfPackages){
+		listOfPackages.addAll(otherPackages);
+	}
+	
 	public int getVolume() {
 		return volume;
 	}
@@ -81,59 +131,24 @@ public class Container {
 		return packagesToDeliver;
 	}
 
-	public static ArrayList<String> getPaquetesEntregados() {
+	public ArrayList<Packages> getPaquetesEntregados() {
 		return paquetesEntregados;
 	}
 
-	public static void setPaquetesEntregados(ArrayList<String> paquetesEntregados) {
-		Container.paquetesEntregados = paquetesEntregados;
+	public void setPaquetesEntregados(ArrayList<Packages> paquetesEntregados) {
+		this.paquetesEntregados = paquetesEntregados;
 	}
 
 	public void setPackagesToDeliver(ArrayList<Packages> packagesToDeliver) {
 		this.packagesToDeliver = packagesToDeliver;
 	}
 
-	public ArrayList<Owner> getOwnersToDeliver() {
-		return ownersToDeliver;
+	public ArrayList<Packages> getOwnersToDeliver() {
+		return otherPackages;
 	}
 
-	public void setOwnersToDeliver(ArrayList<Owner> ownersToDeliver) {
-		this.ownersToDeliver = ownersToDeliver;
+	public void setOwnersToDeliver(ArrayList<Packages> ownersToDeliver) {
+		this.otherPackages = ownersToDeliver;
 	}
-	
-	public void determineOwners(){ 
-		for(int i = 0; i < getPackagesToDeliver().size(); i++ ){ 
-			ownersToDeliver.add(getPackagesToDeliver().get(i).getOwner());
-		}
-	}  
-	
-
-	public void organizeOwner(ArrayList<Owner> list){
-		Collections.sort(list, new Comparator<Owner>() {
-         	public int compare(Owner p1, Owner p2) {
-            return Double.compare(p1.getStartAvailablity(),p2.getStartAvailablity());
-        }
-		}); 
-    }
-	
-	public ArrayList<String> greedy(){   
-		organizeOwner(ownersToDeliver);   
-		int indice = 0; 
-		paquetesEntregados.add(ownersToDeliver.get(0).getAddress());
-		for(int i = 1; i< ownersToDeliver.size(); i++){ 
-			if(ownersToDeliver.get(indice).getStartAvailablity() + ownersToDeliver.get(indice).getTravelTime() + ownersToDeliver.get(indice).getDispacheTime() <= ownersToDeliver.get(i).getStartAvailablity()){  
-				paquetesEntregados.add(ownersToDeliver.get(i).getAddress()); 
-				indice = i;
-			} 
-		}  
-		if(paquetesEntregados.size() != ownersToDeliver.size()){ 
-			System.out.println("La solución es parcial"); 
-			return paquetesEntregados; 
-		} 
-		return paquetesEntregados;		
-	}
-
-
-	
 
 }

@@ -17,7 +17,7 @@ public class Population{
 	public Population(ArrayList<Packages> candidateSet){
 		listOfIndividuals = new ArrayList<Individual>();
 		this.candidateSet = sortArray(candidateSet);
-		crossoverValue = 3;
+		crossoverValue = candidateSet.size()/2 + 1;
 		mutationProbability = 0.05;
 	}
 	
