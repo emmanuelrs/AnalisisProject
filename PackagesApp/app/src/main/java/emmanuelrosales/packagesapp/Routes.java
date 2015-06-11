@@ -4,6 +4,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -25,12 +31,21 @@ public class Routes extends ActionBarActivity {
         ArrayList<Truck> totalTrucks = Trucks.getCamiones();
         Truck truck;
         Individual individual;
+        GridView grid;
+        String[] letters = new String[5];
+        letters[0] = "A";
+        letters[1] = "B";
+        letters[2] = "C";
+        letters[3] = "D";
+        letters[4] = "E";
 
         int truckCounter = 0;
+        int indexLetter = 0;
         while(!totalPackages.isEmpty() && truckCounter < totalTrucks.size()){
             truck = totalTrucks.get(truckCounter);
             truck.organizeOwner(totalPackages);
-            System.out.println("---------------------------------------");
+            letters[indexLetter] = Integer.toString(truckCounter);
+            System.out.println("-------------I--------------------------");
 
             truck.setPackagesToDeliver(totalPackages);
             truck.greedy(totalPackages.size());
@@ -47,7 +62,7 @@ public class Routes extends ActionBarActivity {
 
             int i = 0;
             if(totalPackages.size() > 1){
-                while(i < 20){
+                while(i < 50){
                     population.generatePopulation(15, totalPackages.size(), false, truck);
                     i++;
                 }
@@ -64,6 +79,24 @@ public class Routes extends ActionBarActivity {
         if(!totalPackages.isEmpty()){
             System.out.println("No todos los paquetes se pudieron entregar en un dia.");
         }
+        grid = (GridView) findViewById(R.id.gridViewRoutes);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, letters);
+        grid.setAdapter(adapter);
+        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
+                Toast.makeText(getApplicationContext(),
+                        ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        // Configuración Grid
+
+
+
+
+
+        //----
     }
 
         @Override
