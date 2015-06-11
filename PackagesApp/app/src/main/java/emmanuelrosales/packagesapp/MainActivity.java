@@ -9,11 +9,23 @@ import android.content.Intent;
 
 
 public class MainActivity extends ActionBarActivity {
+    public boolean bandera = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(bandera){
+            InsertOwner owner = new InsertOwner();
+            owner.setClientes();
+            InsertPackage pack = new InsertPackage();
+            pack.crearPaquetesDefault();
+            InsertTruck truck = new InsertTruck();
+            truck.DefaultTrucks();
+            bandera = false;
+        }
+
     }
 
     @Override

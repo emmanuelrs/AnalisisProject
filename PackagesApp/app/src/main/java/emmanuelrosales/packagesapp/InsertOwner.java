@@ -60,6 +60,25 @@ public class InsertOwner extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public static void setClientes(){
+        Owner cliente = new Owner("Emmanuel Rosales",6,15,"Atenas",1);
+        clientes.add(cliente);
+        Owner cliente1 = new Owner("Miuyin Yong Wong",8,20,"Santa Ana",1);
+        clientes.add(cliente1);
+        Owner cliente2 = new Owner("Ernesto Lang Oreamuno",9,15,"San José Centro",1);
+        clientes.add(cliente2);
+        Owner cliente3 = new Owner("Cristam Flores",10,22,"Coronado",1);
+        clientes.add(cliente3);
+        Owner cliente4 = new Owner("Luis Serrano",5,16,"Cartago",2);
+        clientes.add(cliente4);
+        Owner cliente5 = new Owner("Mark Brown",10,22,"Escazú",1);
+        clientes.add(cliente5);
+        Owner cliente6 = new Owner("Sharik Rosales",9,21,"Alajuela",2);
+        clientes.add(cliente6);
+        Owner cliente7 = new Owner("Chester Yong",11,19,"Heredia",1);
+        clientes.add(cliente7);
+    }
+
     public static ArrayList<Owner> getClientes() {
         return clientes;
     }

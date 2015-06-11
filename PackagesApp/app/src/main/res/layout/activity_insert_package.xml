@@ -105,20 +105,6 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Home"
-        android:id="@+id/btnHomeInserP"
-        android:background="#ffff1100"
-        android:textColor="#ffffffff"
-        android:width="150dp"
-        android:height="70dp"
-        android:onClick="jumpHome"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/insert"
         android:id="@+id/btnInsertP"
         android:width="200dp"
@@ -127,7 +113,6 @@
         android:textColor="#ffffffff"
         android:background="#ba888888"
         android:onClick="getValP"
-        android:layout_above="@+id/btnHomeInserP"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -180,9 +165,7 @@
         android:textSize="50dp"
         android:layout_alignTop="@+id/txtPHeight"
         android:layout_alignLeft="@+id/inpuPname"
-        android:layout_alignStart="@+id/inpuPname"
-        android:layout_alignRight="@+id/btnHomeInserP"
-        android:layout_alignEnd="@+id/btnHomeInserP" />
+        android:layout_alignStart="@+id/inpuPname" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -8,20 +8,6 @@
     android:background="@android:color/background_dark"
     >
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Home"
-        android:id="@+id/bnBackHomeI"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="#ffff1100"
-        android:textColor="#ffffffff"
-        android:width="150dp"
-        android:height="70dp"
-        android:onClick="jumpHome" />
-
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,13 +32,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnCTipo1"
-        android:layout_alignTop="@+id/btnCTipo2"
-        android:layout_alignRight="@+id/bnBackHomeI"
-        android:layout_alignEnd="@+id/bnBackHomeI"
-        android:layout_marginRight="50dp"
-        android:layout_marginEnd="50dp"
         android:background="@drawable/small"
-        android:onClick="InsertCTipo1" />
+        android:onClick="InsertCTipo1"
+        android:layout_alignBottom="@+id/btnCTipo2"
+        android:layout_alignLeft="@+id/txtViewCT1"
+        android:layout_alignStart="@+id/txtViewCT1" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,11 +45,11 @@
         android:id="@+id/txtViewCT3"
         android:width="300dp"
         android:height="200dp"
-        android:layout_below="@+id/btnCTipo1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:textColor="#ffffffff"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:layout_alignTop="@+id/txtViewCT2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -76,9 +60,10 @@
         android:height="200dp"
         android:textColor="#ffffffff"
         android:textSize="30dp"
-        android:layout_below="@+id/btnCTipo1"
+        android:layout_below="@+id/btnCTipo2"
         android:layout_alignLeft="@+id/btnCTipo2"
-        android:layout_alignStart="@+id/btnCTipo2" />
+        android:layout_alignStart="@+id/btnCTipo2"
+        android:layout_marginTop="75dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -89,7 +74,7 @@
         android:height="200dp"
         android:textColor="#ffffffff"
         android:textSize="30dp"
-        android:layout_below="@+id/btnCTipo1"
+        android:layout_alignTop="@+id/txtViewCT2"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 

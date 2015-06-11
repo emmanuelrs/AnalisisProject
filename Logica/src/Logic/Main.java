@@ -27,7 +27,7 @@ public class Main {
 		truckList.add(new Container());
 		truckList.add(new Container());
 		
-		for(int i = 0; i < 20; i++){
+		for(int i = 0; i < 10; i++){
 			Owner owner;
 			int length = random.nextInt(12 - 1) + 1; 
 			int width = random.nextInt(6 - 1) + 1;

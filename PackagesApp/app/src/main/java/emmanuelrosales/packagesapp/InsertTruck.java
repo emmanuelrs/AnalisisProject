@@ -49,7 +49,14 @@ public class InsertTruck extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+    public static void DefaultTrucks(){
+        Truck camion = new Truck(26,46,50);
+        camiones.add(camion);
+        Truck camion1 = new Truck(26,46,50);
+        camiones.add(camion1);
+        Truck camion2 = new Truck(16,30,34);
+        camiones.add(camion2);
+    }
     public void InsertCTipo1(View view){
         try{
             Truck camion = new Truck(16,30,34);

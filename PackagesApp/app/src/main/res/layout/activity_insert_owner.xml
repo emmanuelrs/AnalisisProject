@@ -149,21 +149,6 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Home"
-        android:id="@+id/buttonBackHomeOwner"
-        android:width="300dp"
-        android:height="80dp"
-        android:background="#ffff0202"
-        android:textColor="#ffffffff"
-        android:textSize="50dp"
-        android:onClick="jumpHome"
-        android:layout_alignTop="@+id/inputTravel"
-        android:layout_toRightOf="@+id/buttonInsertOwner"
-        android:layout_toEndOf="@+id/buttonInsertOwner" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/insert"
         android:id="@+id/buttonInsertOwner"
         android:width="200dp"

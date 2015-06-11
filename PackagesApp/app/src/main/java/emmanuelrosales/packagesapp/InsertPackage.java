@@ -78,13 +78,49 @@ public class InsertPackage extends ActionBarActivity {
     public static ArrayList<DeliveryPackage> getPaquetes() {
         return paquetes;
     }
+    public void crearPaquetesDefault(){
+        InsertOwner owner_default = new InsertOwner();
+        DeliveryPackage paquete = new DeliveryPackage(1,1,1,10,owner_default.getClientes().get(0));
+        paquetes.add(paquete);
+        DeliveryPackage paquete1 = new DeliveryPackage(2,2,2,11,owner_default.getClientes().get(1));
+        paquetes.add(paquete1);
+        DeliveryPackage paquete2 = new DeliveryPackage(1,2,3,5,owner_default.getClientes().get(2));
+        paquetes.add(paquete2);
+        DeliveryPackage paquete3= new DeliveryPackage(3,2,1,6,owner_default.getClientes().get(3));
+        paquetes.add(paquete3);
+        DeliveryPackage paquete4 = new DeliveryPackage(2,2,1,8,owner_default.getClientes().get(4));
+        paquetes.add(paquete4);
+        DeliveryPackage paquete5 = new DeliveryPackage(3,2,2,10,owner_default.getClientes().get(5));
+        paquetes.add(paquete5);
+        DeliveryPackage paquete6 = new DeliveryPackage(1,1,2,3,owner_default.getClientes().get(6));
+        paquetes.add(paquete6);
+        DeliveryPackage paquete7 = new DeliveryPackage(3,3,2,7,owner_default.getClientes().get(0));
+        paquetes.add(paquete7);
+        DeliveryPackage paquete8 = new DeliveryPackage(3,3,3,12,owner_default.getClientes().get(0));
+        paquetes.add(paquete8);
+        DeliveryPackage paquete9 = new DeliveryPackage(2,1,2,10,owner_default.getClientes().get(1));
+        paquetes.add(paquete9);
+        DeliveryPackage paquete10 = new DeliveryPackage(2,2,2,13,owner_default.getClientes().get(2));
+        paquetes.add(paquete10);
+        DeliveryPackage paquete11 = new DeliveryPackage(3,1,2,4,owner_default.getClientes().get(3));
+        paquetes.add(paquete11);
+        DeliveryPackage paquete12 = new DeliveryPackage(5,3,1,13,owner_default.getClientes().get(4));
+        paquetes.add(paquete12);
+        DeliveryPackage paquete13 = new DeliveryPackage(2,2,2,7,owner_default.getClientes().get(5));
+        paquetes.add(paquete13);
+        DeliveryPackage paquete14 = new DeliveryPackage(1,2,3,5,owner_default.getClientes().get(6));
+        paquetes.add(paquete14);
+        DeliveryPackage paquete15 = new DeliveryPackage(5,5,5,10,owner_default.getClientes().get(0));
+        paquetes.add(paquete15);
+        DeliveryPackage paquete16 = new DeliveryPackage(4,4,4,14,owner_default.getClientes().get(1));
+        paquetes.add(paquete16);
+    }
 
     public void getValP(View view){
 
        Spinner mySpinner = (Spinner)findViewById(R.id.spinner);
         String txtFromSpinner = mySpinner.getSelectedItem().toString();
         Owner duenno = returnOwner(txtFromSpinner);
-
 
         getHeight =  (EditText)findViewById(R.id.inputPHeight);
         getLength =  (EditText)findViewById(R.id.inputPLenght);
@@ -94,7 +130,9 @@ public class InsertPackage extends ActionBarActivity {
         System.out.println(getHeight.getText());
         DeliveryPackage paquete = new DeliveryPackage(Integer.parseInt(getLength.getText().toString()),Integer.parseInt(getWidth.getText().toString()),
                 Integer.parseInt(getHeight.getText().toString()),Integer.parseInt(getDate.getText().toString()),duenno);
+
         paquetes.add(paquete);
+
         txtLength = (TextView)findViewById(R.id.inputPLenght);
         txtLength.setText("");
         txtHeight = (TextView)findViewById(R.id.inputPHeight);
@@ -114,9 +152,6 @@ public class InsertPackage extends ActionBarActivity {
 
         alertDialog.show();
 
-    }
-    public static void setPaquetes(DeliveryPackage paquete) {
-        paquetes.add(paquete);
     }
 
     public void jumpHome(View view) {
