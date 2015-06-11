@@ -1,8 +1,13 @@
 package emmanuelrosales.packagesapp;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 /**
  * Created by emmanuelrosales on 5/31/15.
  */
+
 public class Truck {
 
     private int containerLength;
@@ -11,6 +16,10 @@ public class Truck {
     private int volume;
     private int idTruck;
     private static int counter = 0;
+
+    private ArrayList<DeliveryPackage> packagesToDeliver = new ArrayList<DeliveryPackage>();
+    private ArrayList<DeliveryPackage> otherPackages = new ArrayList<DeliveryPackage>();
+    private ArrayList<DeliveryPackage> possibleDeliveries = new ArrayList<DeliveryPackage>();
 
 
 
@@ -23,6 +32,54 @@ public class Truck {
         setVolume(getContainerLength() * getContainerWidth() * getContainerHeight());
         setIdTruck(counter);
 
+    }
+
+    public void organizeOwner(ArrayList<DeliveryPackage> list){
+        Collections.sort(list, new Comparator<DeliveryPackage>() {
+            public int compare(DeliveryPackage p1, DeliveryPackage p2) {
+                return Double.compare(p1.getOwner().getStartAvailablity(), p2.getOwner().getStartAvailablity());
+            }
+        });
+    }
+
+    public ArrayList<DeliveryPackage> greedy(int amount){
+        organizeOwner(packagesToDeliver);
+        int indice = 0;
+        Owner firstOwner = new Owner();
+        Owner secondOwner = new Owner();
+        possibleDeliveries.add(packagesToDeliver.get(0));
+
+        for(int i = 1; i < packagesToDeliver.size(); i++){
+            firstOwner = packagesToDeliver.get(indice).getOwner();
+            secondOwner = packagesToDeliver.get(i).getOwner();
+            if(firstOwner.getStartAvailablity() + firstOwner.getTravelTime() + firstOwner.getDispacheTime() <= secondOwner.getStartAvailablity() || firstOwner.equals(secondOwner)){
+                possibleDeliveries.add(packagesToDeliver.get(i));
+                indice = i;
+            } else {
+                otherPackages.add(packagesToDeliver.get(i));
+            }
+        }
+        if(possibleDeliveries.size() == amount){
+            System.out.println("Todos los paquetes se pueden entregar.");
+            System.out.println("--------------------------------");
+            System.out.println("Paquetes a entregar: " + possibleDeliveries.size());
+            return possibleDeliveries;
+        } else if (possibleDeliveries.size() != amount && possibleDeliveries.size() != 0) {
+            System.out.println("Se pueden entregar algunos paquetes.");
+            System.out.println("--------------------------------");
+            System.out.println("Paquetes a entregar: " + possibleDeliveries.size());
+            System.out.println("--------------------------------");
+            System.out.println("Paquetes que no se pueden entregar: " + otherPackages.size());
+            return possibleDeliveries;
+        } else {
+            System.out.println("No se puede entregar ningun paquete.");
+            return null;
+        }
+
+    }
+
+    public void addPackages(ArrayList<DeliveryPackage> listOfPackages){
+        listOfPackages.addAll(otherPackages);
     }
 
     public int getVolume(){return volume;}

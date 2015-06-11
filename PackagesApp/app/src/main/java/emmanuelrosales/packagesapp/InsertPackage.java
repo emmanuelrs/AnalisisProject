@@ -12,14 +12,13 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.view.View;
 
 import java.util.ArrayList;
 
 
 public class InsertPackage extends ActionBarActivity {
     private String array_spinner[];
-    static private ArrayList<Package> paquetes = new ArrayList<>();
+    static private ArrayList<DeliveryPackage> paquetes = new ArrayList<>();
     static private EditText getLength;
     static private EditText getHeight;
     static private EditText getWidth;
@@ -77,7 +76,7 @@ public class InsertPackage extends ActionBarActivity {
         return CNombre;
     }
 
-    public static ArrayList<Package> getPaquetes() {
+    public static ArrayList<DeliveryPackage> getPaquetes() {
         return paquetes;
     }
 
@@ -94,7 +93,7 @@ public class InsertPackage extends ActionBarActivity {
         getDescription =(EditText)findViewById(R.id.inpuPname);
         getDate = (EditText)findViewById(R.id.inputDiasEntrega);
         System.out.println(getHeight.getText());
-        Package paquete = new Package(Integer.parseInt(getLength.getText().toString()),Integer.parseInt(getWidth.getText().toString()),
+        DeliveryPackage paquete = new DeliveryPackage(Integer.parseInt(getLength.getText().toString()),Integer.parseInt(getWidth.getText().toString()),
                 Integer.parseInt(getHeight.getText().toString()),Integer.parseInt(getDate.getText().toString()),duenno);
         paquetes.add(paquete);
         txtLength = (TextView)findViewById(R.id.inputPLenght);
@@ -106,7 +105,7 @@ public class InsertPackage extends ActionBarActivity {
         txtDate = (TextView)findViewById(R.id.inputDiasEntrega);
         txtDate.setText("");
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("Package Added");
+        alertDialog.setTitle("DeliveryPackage Added");
         alertDialog.setMessage("Congratulations a new package was added");
         alertDialog.setButton("Thank You", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {

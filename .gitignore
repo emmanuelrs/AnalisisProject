@@ -25,3 +25,7 @@ proguard/
 
 # Log Files
 *.log
+*.xml
+PackagesApp/.idea/gradle.xml
+PackagesApp/.idea/gradle.xml
+PackagesApp/app/app.iml

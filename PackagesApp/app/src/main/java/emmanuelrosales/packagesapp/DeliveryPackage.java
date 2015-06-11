@@ -3,7 +3,7 @@ package emmanuelrosales.packagesapp;
 /**
  * Created by Emmanuel on 02-Jun-15.
  */
-public class Package {
+public class DeliveryPackage {
 
     /**
      *
@@ -18,7 +18,7 @@ public class Package {
     private Owner Owner;
 
 
-    public Package(int aPackageLength, int aPackageWidth, int aPackageHeight, int aDiasEntrega, Owner pOwner) {
+    public DeliveryPackage(int aPackageLength, int aPackageWidth, int aPackageHeight, int aDiasEntrega, Owner pOwner) {
         // TODO Auto-generated constructor stub
 
         setPackageLength(aPackageLength);
