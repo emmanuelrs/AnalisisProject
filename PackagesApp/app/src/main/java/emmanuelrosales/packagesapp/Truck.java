@@ -54,6 +54,7 @@ public class Truck {
             secondOwner = packagesToDeliver.get(i).getOwner();
             if(firstOwner.getStartAvailablity() + firstOwner.getTravelTime() + firstOwner.getDispacheTime() <= secondOwner.getStartAvailablity() || firstOwner.equals(secondOwner)){
                 possibleDeliveries.add(packagesToDeliver.get(i));
+                packagesToDeliver.get(i).setTruckNumber(getIdTruck());
                 indice = i;
             } else {
                 otherPackages.add(packagesToDeliver.get(i));

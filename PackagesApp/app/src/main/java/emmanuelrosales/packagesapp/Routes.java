@@ -32,19 +32,13 @@ public class Routes extends ActionBarActivity {
         Truck truck;
         Individual individual;
         GridView grid;
-        String[] letters = new String[5];
-        letters[0] = "A";
-        letters[1] = "B";
-        letters[2] = "C";
-        letters[3] = "D";
-        letters[4] = "E";
+        String[] letters = new String[5 * totalPackages.size()];
 
         int truckCounter = 0;
-        int indexLetter = 0;
+
         while(!totalPackages.isEmpty() && truckCounter < totalTrucks.size()){
             truck = totalTrucks.get(truckCounter);
             truck.organizeOwner(totalPackages);
-            letters[indexLetter] = Integer.toString(truckCounter);
             System.out.println("-------------I--------------------------");
 
             truck.setPackagesToDeliver(totalPackages);
@@ -79,6 +73,19 @@ public class Routes extends ActionBarActivity {
         if(!totalPackages.isEmpty()){
             System.out.println("No todos los paquetes se pudieron entregar en un dia.");
         }
+
+        // idpackage idtruck owner destination time
+
+        int indexLetter = 0;
+        for(int i = 0; i < totalPackages.size(); i++) {
+            letters[indexLetter] = Integer.toString(i+1);
+            letters[indexLetter+1] = totalPackages.get(i).getOwner().getOwnerName();
+            letters[indexLetter+2] = totalPackages.get(i).getOwner().getAddress();
+            letters[indexLetter+3] = Integer.toString(totalPackages.get(i).getTruckNumber());
+            indexLetter += 4;
+        }
+
+
         grid = (GridView) findViewById(R.id.gridViewRoutes);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, letters);
         grid.setAdapter(adapter);

@@ -14,6 +14,9 @@ public class DeliveryPackage {
     private int packageHeight;
     private int volume;
     private int diasEntrega;
+    private int truckNumber = 0;
+    private int deliveryTime = 0;
+
     private String nombre; // Descripción breve del paquete.
     private Owner Owner;
 
@@ -92,6 +95,20 @@ public class DeliveryPackage {
         Owner = owner;
     }
 
+    public int getTruckNumber() {
+        return truckNumber;
+    }
 
+    public void setTruckNumber(int truckNumber) {
+        this.truckNumber = truckNumber;
+    }
+
+    public int getDeliveryTime() {
+        return deliveryTime;
+    }
+
+    public void setDeliveryTime(int deliveryTime) {
+        this.deliveryTime = deliveryTime;
+    }
 
 }
