@@ -1,5 +1,6 @@
 package emmanuelrosales.packagesapp;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,93 +22,99 @@ public class Routes extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routes);
+        try {
+            InsertPackage paquete = new InsertPackage();
+            ArrayList<DeliveryPackage> totalPackages = paquete.getPaquetes();
+            InsertOwner owner = new InsertOwner();
+            ArrayList<Owner> totalOwner = owner.getClientes();
+            InsertTruck Trucks = new InsertTruck();
+            ArrayList<Truck> totalTrucks = Trucks.getCamiones();
+            Truck truck;
+            Individual individual;
 
-        InsertPackage paquete = new InsertPackage();
-        ArrayList<DeliveryPackage> totalPackages = paquete.getPaquetes();
-        InsertOwner owner = new InsertOwner();
-        ArrayList<Owner> totalOwner = owner.getClientes();
-        InsertTruck Trucks = new InsertTruck();
-        ArrayList<Truck> totalTrucks = Trucks.getCamiones();
-        Truck truck;
-        Individual individual;
+            GridView grid;
+            String[] letters = new String[totalPackages.size()];
 
-        //GridView grid;
-        //String[] letters = new String[totalPackages.size()];
-        System.out.println(totalPackages.size());
-        String[]  myStringArray= new String[totalPackages.size()];
+            String[] myStringArray = new String[totalPackages.size()];
 
-        int truckCounter = 0;
-        int indexLetter = 0;
-        int packageCounter = 0;
-        while(!totalPackages.isEmpty() && truckCounter < totalTrucks.size()){
-            truck = totalTrucks.get(truckCounter);
-            truck.organizeOwner(totalPackages);
-            System.out.println("-------------I--------------------------");
 
-            truck.setPackagesToDeliver(totalPackages);
-            truck.greedy(totalPackages.size());
-            totalPackages = truck.getPossibleDeliveries();
+            int truckCounter = 0;
+            int packageCounter = 0;
+            int indexLetter = 0;
 
-            Population population = new Population(totalPackages);
-            population.generatePopulation(15, totalPackages.size(), true, truck);
+            while (!totalPackages.isEmpty() && truckCounter < totalTrucks.size()) {
+                System.out.print("Tamaño totalpackage ");
+                System.out.println(totalPackages.size());
+                truck = totalTrucks.get(truckCounter);
+                truck.organizeOwner(totalPackages);
+                System.out.println("-------------I--------------------------");
 
-            int i = 0;
-            if(totalPackages.size() > 1){
-                while(i < 50){
-                    population.generatePopulation(15, totalPackages.size(), false, truck);
-                    i++;
+                truck.setPackagesToDeliver(totalPackages);
+                truck.greedy(totalPackages.size());
+                totalPackages = truck.getPossibleDeliveries();
+
+                Population population = new Population(totalPackages);
+                population.generatePopulation(15, totalPackages.size(), true, truck);
+
+                int i = 0;
+                if (totalPackages.size() > 1) {
+                    while (i < 50) {
+                        population.generatePopulation(15, totalPackages.size(), false, truck);
+                        i++;
+                    }
                 }
+
+                System.out.println("---------------------------------");
+                System.out.println("Paquetes para meter al camion: " + totalPackages.size());
+                System.out.println("length: " + truck.getContainerLength());
+                System.out.println("width: " + truck.getContainerWidth());
+                System.out.println("height: " + truck.getContainerHeight());
+
+                System.out.print("indexLetter: ");
+                System.out.println(indexLetter);
+                for (int j = 0; j < totalPackages.size(); j++) {
+                    System.out.print("--");
+                    System.out.println(population.returnBestCandidate().getChromosome().get(j));
+                    if (population.returnBestCandidate().getChromosome().get(j) == 1) {
+                        String message = "";
+                        message = message + Integer.toString(packageCounter + 1);
+                        message = message + "  " + totalPackages.get(j).getOwner().getOwnerName();
+                        message = message + " " + totalPackages.get(j).getOwner().getAddress();
+                        message = message + " " + Integer.toString(totalPackages.get(j).getTruckNumber());
+                        message = message + " " + Integer.toString(totalPackages.get(j).getOwner().getStartAvailablity());
+                        System.out.println(message);
+                        letters[indexLetter] = message;
+                        indexLetter += 1;
+                        packageCounter += 1;
+                    } 
+                }
+
+                System.out.println(population.returnBestCandidate().getChromosome());
+                System.out.println("Paquetes en el camion: " + population.returnBestCandidate().getFitness());
+                individual = population.returnBestCandidate();
+                individual.eliminatePackages(totalPackages);
+                truck.addPackages(totalPackages);
+                truckCounter++;
             }
 
-            System.out.println("---------------------------------");
-            System.out.println("Paquetes para meter al camion: " + totalPackages.size());
-            System.out.println("length: " + truck.getContainerLength());
-            System.out.println("width: " +  truck.getContainerWidth());
-            System.out.println("height: " + truck.getContainerHeight());
+            System.out.println("--------------------------------");
+            System.out.println("Camiones utilizados: " + (truckCounter));
+            while (indexLetter < myStringArray.length) {
+                myStringArray[indexLetter] = "no se puede";
+                indexLetter++;
 
-
-            for(int j = 0; j < totalPackages.size(); j++) {
-                System.out.print("--");
-                System.out.println(population.returnBestCandidate().getChromosome().get(j));
-                if(population.returnBestCandidate().getChromosome().get(j) == 1) {
-                    String message = "";
-                    message = message + Integer.toString(packageCounter + 1);
-                    message = message + "  " + totalPackages.get(j).getOwner().getOwnerName();
-                    message = message + " " + totalPackages.get(j).getOwner().getAddress();
-                    message = message + " " + Integer.toString(totalPackages.get(j).getTruckNumber());
-                    message = message + " " + Integer.toString(totalPackages.get(j).getOwner().getStartAvailablity());
-                    System.out.println(message);
-                    myStringArray[indexLetter] = message;
-                    indexLetter += 1;
-                    packageCounter += 1;
-                }
+            }
+            if (!totalPackages.isEmpty()) {
+                System.out.println("No todos los paquetes se pudieron entregar en un dia.");
             }
 
-            System.out.println(population.returnBestCandidate().getChromosome());
-            System.out.println("Paquetes en el camion: " + population.returnBestCandidate().getFitness());
-            individual = population.returnBestCandidate();
-            individual.eliminatePackages(totalPackages);
-            truck.addPackages(totalPackages);
-            truckCounter++;
-        }
-
-        System.out.println("--------------------------------");
-        System.out.println("Camiones utilizados: " + (truckCounter));
-        while(indexLetter < myStringArray.length) {
-            myStringArray[indexLetter] = "no se puede";
-            indexLetter++;
-
-        }
-        if(!totalPackages.isEmpty()){
-            System.out.println("No todos los paquetes se pudieron entregar en un dia.");
-        }
-
-        // idpackage idtruck owner destination time
+            // idpackage idtruck owner destination time
 
 
-/*
+
         grid = (GridView) findViewById(R.id.gridViewRoutes);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, letters);
         grid.setAdapter(adapter);
@@ -118,19 +125,21 @@ public class Routes extends ActionBarActivity {
             }
 
         });
-*/
 
-        // Configuración Grid
 
-            ArrayAdapter<String> myAdapter=new
+            // Configuración Grid
+
+         /*   ArrayAdapter<String> myAdapter = new
                     ArrayAdapter<String>(
                     this,
                     android.R.layout.simple_list_item_1,
                     myStringArray);
-            ListView myList=(ListView)
+            ListView myList = (ListView)
                     findViewById(R.id.listView);
-            myList.setAdapter(myAdapter);
-
+            myList.setAdapter(myAdapter);*/
+        } catch (Exception E) {
+            System.out.println(E);
+        }
     }
 
         @Override
@@ -154,4 +163,10 @@ public class Routes extends ActionBarActivity {
 
             return super.onOptionsItemSelected(item);
         }
+
+    public void jumpHomeR(View view) {
+        Intent intent = new Intent(view.getContext(), MainActivity.class);
+        startActivityForResult(intent, 0);
+    }
+
     }

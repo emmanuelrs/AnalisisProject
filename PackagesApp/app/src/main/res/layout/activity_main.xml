@@ -160,4 +160,17 @@
         android:textColor="#ffffffff"
         android:onClick="jumpInsertPackage" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generate"
+        android:id="@+id/generateButton"
+        android:textSize="50dp"
+        android:textColor="#ffffffff"
+        android:width="400dp"
+        android:onClick="generate"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/ViewR"
+        android:layout_alignEnd="@+id/ViewR" />
+
 </RelativeLayout>
