@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,11 +32,15 @@ public class Routes extends ActionBarActivity {
         ArrayList<Truck> totalTrucks = Trucks.getCamiones();
         Truck truck;
         Individual individual;
-        GridView grid;
-        String[] letters = new String[5 * totalPackages.size()];
+
+        //GridView grid;
+        //String[] letters = new String[totalPackages.size()];
+        System.out.println(totalPackages.size());
+        String[]  myStringArray= new String[totalPackages.size()];
 
         int truckCounter = 0;
-
+        int indexLetter = 0;
+        int packageCounter = 0;
         while(!totalPackages.isEmpty() && truckCounter < totalTrucks.size()){
             truck = totalTrucks.get(truckCounter);
             truck.organizeOwner(totalPackages);
@@ -48,12 +53,6 @@ public class Routes extends ActionBarActivity {
             Population population = new Population(totalPackages);
             population.generatePopulation(15, totalPackages.size(), true, truck);
 
-            System.out.println("---------------------------------");
-            System.out.println("Paquetes para meter al camion: " + totalPackages.size());
-            System.out.println("length: " + truck.getContainerLength());
-            System.out.println("width: " +  truck.getContainerWidth());
-            System.out.println("height: " + truck.getContainerHeight());
-
             int i = 0;
             if(totalPackages.size() > 1){
                 while(i < 50){
@@ -61,6 +60,31 @@ public class Routes extends ActionBarActivity {
                     i++;
                 }
             }
+
+            System.out.println("---------------------------------");
+            System.out.println("Paquetes para meter al camion: " + totalPackages.size());
+            System.out.println("length: " + truck.getContainerLength());
+            System.out.println("width: " +  truck.getContainerWidth());
+            System.out.println("height: " + truck.getContainerHeight());
+
+
+            for(int j = 0; j < totalPackages.size(); j++) {
+                System.out.print("--");
+                System.out.println(population.returnBestCandidate().getChromosome().get(j));
+                if(population.returnBestCandidate().getChromosome().get(j) == 1) {
+                    String message = "";
+                    message = message + Integer.toString(packageCounter + 1);
+                    message = message + "  " + totalPackages.get(j).getOwner().getOwnerName();
+                    message = message + " " + totalPackages.get(j).getOwner().getAddress();
+                    message = message + " " + Integer.toString(totalPackages.get(j).getTruckNumber());
+                    message = message + " " + Integer.toString(totalPackages.get(j).getOwner().getStartAvailablity());
+                    System.out.println(message);
+                    myStringArray[indexLetter] = message;
+                    indexLetter += 1;
+                    packageCounter += 1;
+                }
+            }
+
             System.out.println(population.returnBestCandidate().getChromosome());
             System.out.println("Paquetes en el camion: " + population.returnBestCandidate().getFitness());
             individual = population.returnBestCandidate();
@@ -68,24 +92,22 @@ public class Routes extends ActionBarActivity {
             truck.addPackages(totalPackages);
             truckCounter++;
         }
+
         System.out.println("--------------------------------");
         System.out.println("Camiones utilizados: " + (truckCounter));
+        while(indexLetter < myStringArray.length) {
+            myStringArray[indexLetter] = "no se puede";
+            indexLetter++;
+
+        }
         if(!totalPackages.isEmpty()){
             System.out.println("No todos los paquetes se pudieron entregar en un dia.");
         }
 
         // idpackage idtruck owner destination time
 
-        int indexLetter = 0;
-        for(int i = 0; i < totalPackages.size(); i++) {
-            letters[indexLetter] = Integer.toString(i+1);
-            letters[indexLetter+1] = totalPackages.get(i).getOwner().getOwnerName();
-            letters[indexLetter+2] = totalPackages.get(i).getOwner().getAddress();
-            letters[indexLetter+3] = Integer.toString(totalPackages.get(i).getTruckNumber());
-            indexLetter += 4;
-        }
 
-
+/*
         grid = (GridView) findViewById(R.id.gridViewRoutes);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, letters);
         grid.setAdapter(adapter);
@@ -94,16 +116,21 @@ public class Routes extends ActionBarActivity {
                 Toast.makeText(getApplicationContext(),
                         ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
             }
-        });
 
+        });
+*/
 
         // Configuración Grid
 
+            ArrayAdapter<String> myAdapter=new
+                    ArrayAdapter<String>(
+                    this,
+                    android.R.layout.simple_list_item_1,
+                    myStringArray);
+            ListView myList=(ListView)
+                    findViewById(R.id.listView);
+            myList.setAdapter(myAdapter);
 
-
-
-
-        //----
     }
 
         @Override

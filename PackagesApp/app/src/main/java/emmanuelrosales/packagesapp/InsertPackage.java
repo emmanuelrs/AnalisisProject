@@ -125,7 +125,6 @@ public class InsertPackage extends ActionBarActivity {
         getHeight =  (EditText)findViewById(R.id.inputPHeight);
         getLength =  (EditText)findViewById(R.id.inputPLenght);
         getWidth = (EditText)findViewById(R.id.inputPHeight);
-        getDescription =(EditText)findViewById(R.id.inpuPname);
         getDate = (EditText)findViewById(R.id.inputDiasEntrega);
         System.out.println(getHeight.getText());
         DeliveryPackage paquete = new DeliveryPackage(Integer.parseInt(getLength.getText().toString()),Integer.parseInt(getWidth.getText().toString()),
