@@ -46,7 +46,7 @@ public class Routes extends ActionBarActivity {
             int indexLetter = 0;
 
             while (!totalPackages.isEmpty() && truckCounter < totalTrucks.size()) {
-                System.out.print("Tamaño totalpackage ");
+                System.out.print("Tamaño totalpackage 1: ");
                 System.out.println(totalPackages.size());
                 truck = totalTrucks.get(truckCounter);
                 truck.organizeOwner(totalPackages);
@@ -66,12 +66,15 @@ public class Routes extends ActionBarActivity {
                         i++;
                     }
                 }
+                System.out.print("Tamaño totalpackage 2: ");
+                System.out.println(totalPackages.size());
 
                 System.out.println("---------------------------------");
                 System.out.println("Paquetes para meter al camion: " + totalPackages.size());
                 System.out.println("length: " + truck.getContainerLength());
                 System.out.println("width: " + truck.getContainerWidth());
                 System.out.println("height: " + truck.getContainerHeight());
+
 
                 System.out.print("indexLetter: ");
                 System.out.println(indexLetter);
@@ -92,12 +95,22 @@ public class Routes extends ActionBarActivity {
                     } 
                 }
 
+                System.out.print("Tamaño totalpackage 2.5: ");
+                System.out.println(totalPackages.size());
+
                 System.out.println(population.returnBestCandidate().getChromosome());
                 System.out.println("Paquetes en el camion: " + population.returnBestCandidate().getFitness());
                 individual = population.returnBestCandidate();
                 individual.eliminatePackages(totalPackages);
+                System.out.print("Tamaño totalpackage 2.7: ");
+                System.out.println(totalPackages.size());
+                System.out.println(truck.getOtherPackages().size());
                 truck.addPackages(totalPackages);
+                System.out.print("Tamaño totalpackage 3: ");
+                System.out.println(totalPackages.size());
                 truckCounter++;
+
+
             }
 
             System.out.println("--------------------------------");
