@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class InsertOwner extends ActionBarActivity {
 
-    static private ArrayList<Owner> clientes = new ArrayList<>();
+    static private ArrayList<Owner> clientes = new ArrayList<Owner>();
     static private EditText getOName;
     static private EditText getOAddress;
     static private EditText getStar;
@@ -83,12 +83,42 @@ public class InsertOwner extends ActionBarActivity {
         return clientes;
     }
 
-    public void getValues(View view){
+    public boolean getValues(View view){
+        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         getOName = (EditText)findViewById(R.id.inputOwnerName);
         getOAddress = (EditText)findViewById(R.id.inputAddress);
         getStar = (EditText)findViewById(R.id.inputStart);
         getEnd = (EditText)findViewById(R.id.inputEnd);
         getTravel = (EditText)findViewById(R.id.inputTravel);
+
+        String name = getOName.getText().toString();
+        String address = getOName.getText().toString();
+        String start = getStar.getText().toString();
+        String end = getEnd.getText().toString();
+        String travel = getTravel.getText().toString();
+
+        if(name.equals("") || address.equals("") || start.equals("") || end.equals("") || travel.equals("")){
+            alertDialog.setTitle("Empty Field(s)");
+            alertDialog.setMessage("Please fill out all the text fields");
+            alertDialog.setButton("Thank you", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    alertDialog.dismiss();
+                }
+            });
+            alertDialog.show();
+            txtName = (TextView)findViewById(R.id.inputOwnerName);
+            txtName.setText("");
+            txtAddress = (TextView)findViewById(R.id.inputAddress);
+            txtAddress.setText("");
+            txtStar = (TextView)findViewById(R.id.inputStart);
+            txtStar.setText("");
+            txtEnd = (TextView)findViewById(R.id.inputEnd);
+            txtEnd.setText("");
+            txtTravel = (TextView) findViewById(R.id.inputTravel);
+            txtTravel.setText("");
+            return false;
+        }
+
 
         Owner cliente = new Owner(getOName.getText().toString(),Integer.parseInt(getStar.getText().toString()),
                 Integer.parseInt(getEnd.getText().toString()),getOAddress.getText().toString(),
@@ -103,11 +133,9 @@ public class InsertOwner extends ActionBarActivity {
         txtStar.setText("");
         txtEnd = (TextView)findViewById(R.id.inputEnd);
         txtEnd.setText("");
-
         txtTravel = (TextView) findViewById(R.id.inputTravel);
         txtTravel.setText("");
 
-        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setTitle("Person Added");
         alertDialog.setMessage("Congratulations a new person was added");
         alertDialog.setButton("Thank you", new DialogInterface.OnClickListener() {
@@ -117,6 +145,7 @@ public class InsertOwner extends ActionBarActivity {
         });
 
         alertDialog.show();
+        return true;
 
     }
     public void jumpHome(View view) {

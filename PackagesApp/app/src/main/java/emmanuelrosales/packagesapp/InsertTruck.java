@@ -15,7 +15,7 @@ import android.content.DialogInterface;
 
 public class InsertTruck extends ActionBarActivity {
 
-    static private ArrayList<Truck> camiones = new ArrayList<>();
+    static private ArrayList<Truck> camiones = new ArrayList<Truck>();
     static private EditText getLength;
     static private EditText getHeight;
     static private EditText getWidth;
