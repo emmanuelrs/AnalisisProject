@@ -121,36 +121,51 @@ public class InsertPackage extends ActionBarActivity {
        Spinner mySpinner = (Spinner)findViewById(R.id.spinner);
         String txtFromSpinner = mySpinner.getSelectedItem().toString();
         Owner duenno = returnOwner(txtFromSpinner);
+        try {
+            getHeight = (EditText) findViewById(R.id.inputPHeight);
+            getLength = (EditText) findViewById(R.id.inputPLenght);
+            getWidth = (EditText) findViewById(R.id.inputPHeight);
+            getDate = (EditText) findViewById(R.id.inputDiasEntrega);
+            System.out.println(getHeight.getText());
+            DeliveryPackage paquete = new DeliveryPackage(Integer.parseInt(getLength.getText().toString()), Integer.parseInt(getWidth.getText().toString()),
+                    Integer.parseInt(getHeight.getText().toString()), Integer.parseInt(getDate.getText().toString()), duenno);
 
-        getHeight =  (EditText)findViewById(R.id.inputPHeight);
-        getLength =  (EditText)findViewById(R.id.inputPLenght);
-        getWidth = (EditText)findViewById(R.id.inputPHeight);
-        getDate = (EditText)findViewById(R.id.inputDiasEntrega);
-        System.out.println(getHeight.getText());
-        DeliveryPackage paquete = new DeliveryPackage(Integer.parseInt(getLength.getText().toString()),Integer.parseInt(getWidth.getText().toString()),
-                Integer.parseInt(getHeight.getText().toString()),Integer.parseInt(getDate.getText().toString()),duenno);
+            paquetes.add(paquete);
 
-        paquetes.add(paquete);
+            txtLength = (TextView) findViewById(R.id.inputPLenght);
+            txtLength.setText("");
+            txtHeight = (TextView) findViewById(R.id.inputPHeight);
+            txtHeight.setText("");
+            txttWidth = (TextView) findViewById(R.id.inputPWidth);
+            txttWidth.setText("");
+            txtDate = (TextView) findViewById(R.id.inputDiasEntrega);
+            txtDate.setText("");
+            final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 
-        txtLength = (TextView)findViewById(R.id.inputPLenght);
-        txtLength.setText("");
-        txtHeight = (TextView)findViewById(R.id.inputPHeight);
-        txtHeight.setText("");
-        txttWidth = (TextView)findViewById(R.id.inputPWidth);
-        txttWidth.setText("");
-        txtDate = (TextView)findViewById(R.id.inputDiasEntrega);
-        txtDate.setText("");
-        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("DeliveryPackage Added");
-        alertDialog.setMessage("Congratulations a new package was added");
-        alertDialog.setButton("Thank You", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                alertDialog.dismiss();
-            }
-        });
+            alertDialog.setTitle("DeliveryPackage Added");
+            alertDialog.setMessage("Congratulations a new package was added");
+            alertDialog.setButton("Thank You", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    alertDialog.dismiss();
+                }
+            });
 
-        alertDialog.show();
+            alertDialog.show();
+        }
+        catch(Exception E){
+            final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 
+            alertDialog.setTitle("Error");
+            alertDialog.setMessage("Sorry, there was a problem inserting the package");
+            alertDialog.setButton("Thank You", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    alertDialog.dismiss();
+                }
+            });
+
+            alertDialog.show();
+
+        }
     }
 
     public void jumpHome(View view) {

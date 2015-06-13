@@ -84,39 +84,54 @@ public class InsertOwner extends ActionBarActivity {
     }
 
     public void getValues(View view){
-        getOName = (EditText)findViewById(R.id.inputOwnerName);
-        getOAddress = (EditText)findViewById(R.id.inputAddress);
-        getStar = (EditText)findViewById(R.id.inputStart);
-        getEnd = (EditText)findViewById(R.id.inputEnd);
-        getTravel = (EditText)findViewById(R.id.inputTravel);
+        try {
+            getOName = (EditText) findViewById(R.id.inputOwnerName);
+            getOAddress = (EditText) findViewById(R.id.inputAddress);
+            getStar = (EditText) findViewById(R.id.inputStart);
+            getEnd = (EditText) findViewById(R.id.inputEnd);
+            getTravel = (EditText) findViewById(R.id.inputTravel);
 
-        Owner cliente = new Owner(getOName.getText().toString(),Integer.parseInt(getStar.getText().toString()),
-                Integer.parseInt(getEnd.getText().toString()),getOAddress.getText().toString(),
-                Integer.parseInt(getTravel.getText().toString()));
-        clientes.add(cliente);
+            Owner cliente = new Owner(getOName.getText().toString(), Integer.parseInt(getStar.getText().toString()),
+                    Integer.parseInt(getEnd.getText().toString()), getOAddress.getText().toString(),
+                    Integer.parseInt(getTravel.getText().toString()));
+            clientes.add(cliente);
 
-        txtName = (TextView)findViewById(R.id.inputOwnerName);
-        txtName.setText("");
-        txtAddress = (TextView)findViewById(R.id.inputAddress);
-        txtAddress.setText("");
-        txtStar = (TextView)findViewById(R.id.inputStart);
-        txtStar.setText("");
-        txtEnd = (TextView)findViewById(R.id.inputEnd);
-        txtEnd.setText("");
+            txtName = (TextView) findViewById(R.id.inputOwnerName);
+            txtName.setText("");
+            txtAddress = (TextView) findViewById(R.id.inputAddress);
+            txtAddress.setText("");
+            txtStar = (TextView) findViewById(R.id.inputStart);
+            txtStar.setText("");
+            txtEnd = (TextView) findViewById(R.id.inputEnd);
+            txtEnd.setText("");
 
-        txtTravel = (TextView) findViewById(R.id.inputTravel);
-        txtTravel.setText("");
+            txtTravel = (TextView) findViewById(R.id.inputTravel);
+            txtTravel.setText("");
 
-        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("Person Added");
-        alertDialog.setMessage("Congratulations a new person was added");
-        alertDialog.setButton("Thank you", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                alertDialog.dismiss();
-            }
-        });
+            final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+            alertDialog.setTitle("Person Added");
+            alertDialog.setMessage("Congratulations a new person was added");
+            alertDialog.setButton("Thank you", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    alertDialog.dismiss();
+                }
+            });
 
-        alertDialog.show();
+            alertDialog.show();
+        }
+
+        catch(Exception E) {
+            final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+            alertDialog.setTitle("Error");
+            alertDialog.setMessage("Sorry, there was an error inserting a person");
+            alertDialog.setButton("Thank you", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    alertDialog.dismiss();
+                }
+            });
+
+            alertDialog.show();
+        }
 
     }
     public void jumpHome(View view) {
