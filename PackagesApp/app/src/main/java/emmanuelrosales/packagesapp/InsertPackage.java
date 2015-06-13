@@ -116,26 +116,35 @@ public class InsertPackage extends ActionBarActivity {
         paquetes.add(paquete16);
     }
 
-    public boolean getValP(View view){
+    public void getValP(View view) {
 
-        Spinner mySpinner = (Spinner)findViewById(R.id.spinner);
+        Spinner mySpinner = (Spinner) findViewById(R.id.spinner);
         String txtFromSpinner = mySpinner.getSelectedItem().toString();
         Owner duenno = returnOwner(txtFromSpinner);
-        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 
-        getHeight =  (EditText)findViewById(R.id.inputPHeight);
-        getLength =  (EditText)findViewById(R.id.inputPLenght);
-        getWidth = (EditText)findViewById(R.id.inputPHeight);
-        getDate = (EditText)findViewById(R.id.inputDiasEntrega);
+        try {
+            getHeight = (EditText) findViewById(R.id.inputPHeight);
+            getLength = (EditText) findViewById(R.id.inputPLenght);
+            getWidth = (EditText) findViewById(R.id.inputPHeight);
+            getDate = (EditText) findViewById(R.id.inputDiasEntrega);
+            System.out.println(getHeight.getText());
+            DeliveryPackage paquete = new DeliveryPackage(Integer.parseInt(getLength.getText().toString()), Integer.parseInt(getWidth.getText().toString()),
+                    Integer.parseInt(getHeight.getText().toString()), Integer.parseInt(getDate.getText().toString()), duenno);
 
-        String height = getHeight.getText().toString();
-        String length = getLength.getText().toString();
-        String width = getWidth.getText().toString();
-        String date = getDate.getText().toString();
+            paquetes.add(paquete);
 
-        if(height.equals("") || length.equals("") || width.equals("") || date.equals("") || duenno == null){
-            alertDialog.setTitle("Empty Fields");
-            alertDialog.setMessage("Please fill out all of the fields");
+            txtLength = (TextView) findViewById(R.id.inputPLenght);
+            txtLength.setText("");
+            txtHeight = (TextView) findViewById(R.id.inputPHeight);
+            txtHeight.setText("");
+            txttWidth = (TextView) findViewById(R.id.inputPWidth);
+            txttWidth.setText("");
+            txtDate = (TextView) findViewById(R.id.inputDiasEntrega);
+            txtDate.setText("");
+            final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+
+            alertDialog.setTitle("DeliveryPackage Added");
+            alertDialog.setMessage("Congratulations a new package was added");
             alertDialog.setButton("Thank You", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     alertDialog.dismiss();
@@ -143,42 +152,20 @@ public class InsertPackage extends ActionBarActivity {
             });
 
             alertDialog.show();
-            txtLength = (TextView)findViewById(R.id.inputPLenght);
-            txtLength.setText("");
-            txtHeight = (TextView)findViewById(R.id.inputPHeight);
-            txtHeight.setText("");
-            txttWidth = (TextView)findViewById(R.id.inputPWidth);
-            txttWidth.setText("");
-            txtDate = (TextView)findViewById(R.id.inputDiasEntrega);
-            txtDate.setText("");
-            return false;
+        } catch (Exception E) {
+            final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+
+            alertDialog.setTitle("Error");
+            alertDialog.setMessage("Sorry, there was a problem inserting the package");
+            alertDialog.setButton("Thank You", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    alertDialog.dismiss();
+                }
+            });
+
+            alertDialog.show();
+
         }
-
-        System.out.println(getHeight.getText());
-        DeliveryPackage paquete = new DeliveryPackage(Integer.parseInt(getLength.getText().toString()),Integer.parseInt(getWidth.getText().toString()),
-                Integer.parseInt(getHeight.getText().toString()),Integer.parseInt(getDate.getText().toString()),duenno);
-
-        paquetes.add(paquete);
-
-        txtLength = (TextView)findViewById(R.id.inputPLenght);
-        txtLength.setText("");
-        txtHeight = (TextView)findViewById(R.id.inputPHeight);
-        txtHeight.setText("");
-        txttWidth = (TextView)findViewById(R.id.inputPWidth);
-        txttWidth.setText("");
-        txtDate = (TextView)findViewById(R.id.inputDiasEntrega);
-        txtDate.setText("");
-        alertDialog.setTitle("DeliveryPackage Added");
-        alertDialog.setMessage("Congratulations a new package was added");
-        alertDialog.setButton("Thank You", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                alertDialog.dismiss();
-            }
-        });
-
-        alertDialog.show();
-        return true;
-
     }
 
     public void jumpHome(View view) {
