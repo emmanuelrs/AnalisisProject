@@ -48,13 +48,17 @@ public class Truck {
         Owner firstOwner = new Owner();
         Owner secondOwner = new Owner();
         possibleDeliveries.add(packagesToDeliver.get(0));
+        packagesToDeliver.get(0).setTruckNumber(getIdTruck());
 
         for(int i = 1; i < packagesToDeliver.size(); i++){
             firstOwner = packagesToDeliver.get(indice).getOwner();
             secondOwner = packagesToDeliver.get(i).getOwner();
             if(firstOwner.getStartAvailablity() + firstOwner.getTravelTime() + firstOwner.getDispacheTime() <= secondOwner.getStartAvailablity() || firstOwner.equals(secondOwner)){
-                possibleDeliveries.add(packagesToDeliver.get(i));
+                System.out.println(getIdTruck());
+                System.out.print("*");
+                System.out.println(i);
                 packagesToDeliver.get(i).setTruckNumber(getIdTruck());
+                possibleDeliveries.add(packagesToDeliver.get(i));
                 indice = i;
             } else {
                 otherPackages.add(packagesToDeliver.get(i));

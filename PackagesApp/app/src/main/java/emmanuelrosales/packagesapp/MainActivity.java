@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
+import android.widget.Button;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -76,5 +77,7 @@ public class MainActivity extends ActionBarActivity {
         pack.crearPaquetesDefault();
         InsertTruck truck = new InsertTruck();
         truck.DefaultTrucks();
+        Button btn = (Button) findViewById(R.id.generateButton);
+        btn.setEnabled(false);
     }
 }

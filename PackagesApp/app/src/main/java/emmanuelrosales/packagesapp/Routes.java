@@ -81,11 +81,11 @@ public class Routes extends ActionBarActivity {
                     System.out.println(population.returnBestCandidate().getChromosome().get(j));
                     if (population.returnBestCandidate().getChromosome().get(j) == 1) {
                         String message = "";
-                        message = message + Integer.toString(packageCounter + 1);
-                        message = message + "  " + totalPackages.get(j).getOwner().getOwnerName();
-                        message = message + " " + totalPackages.get(j).getOwner().getAddress();
-                        message = message + " " + Integer.toString(totalPackages.get(j).getTruckNumber());
-                        message = message + " " + Integer.toString(totalPackages.get(j).getOwner().getStartAvailablity());
+                        message = message + "                   " + Integer.toString(packageCounter + 1);
+                        message = message + "                   " + totalPackages.get(j).getOwner().getOwnerName();
+                        message = message + "                   " + totalPackages.get(j).getOwner().getAddress();
+                        message = message + "                   " + Integer.toString(totalPackages.get(j).getTruckNumber());
+                        message = message + "                   " + Integer.toString(totalPackages.get(j).getOwner().getStartAvailablity());
                         System.out.println(message);
                         letters[indexLetter] = message;
                         indexLetter += 1;
@@ -99,14 +99,17 @@ public class Routes extends ActionBarActivity {
                 individual.eliminatePackages(totalPackages);
                 truck.addPackages(totalPackages);
                 truckCounter++;
+                System.out.println("otherfinal: ");
+                System.out.println(truck.getOtherPackages().size());
                 truck.getPossibleDeliveries().clear();
                 truck.getOtherPackages().clear();
             }
 
             System.out.println("--------------------------------");
             System.out.println("Camiones utilizados: " + (truckCounter));
-            while (indexLetter < myStringArray.length) {
-                myStringArray[indexLetter] = "no se puede";
+
+            while (indexLetter < letters.length) {
+                letters[indexLetter] = "Package was not delivered today";
                 indexLetter++;
 
             }
@@ -130,16 +133,6 @@ public class Routes extends ActionBarActivity {
         });
 
 
-            // Configuración Grid
-
-         /*   ArrayAdapter<String> myAdapter = new
-                    ArrayAdapter<String>(
-                    this,
-                    android.R.layout.simple_list_item_1,
-                    myStringArray);
-            ListView myList = (ListView)
-                    findViewById(R.id.listView);
-            myList.setAdapter(myAdapter);*/
         } catch (Exception E) {
             System.out.println(E);
         }

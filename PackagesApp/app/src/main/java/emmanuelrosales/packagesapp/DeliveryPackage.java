@@ -14,7 +14,7 @@ public class DeliveryPackage {
     private int packageHeight;
     private int volume;
     private int diasEntrega;
-    private int truckNumber = 0;
+    private int truckNumber = -1;
     private int deliveryTime = 0;
 
     private String nombre; // Descripción breve del paquete.
