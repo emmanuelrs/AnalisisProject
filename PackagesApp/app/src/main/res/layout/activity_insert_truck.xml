@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnCTipo1"
-        android:background="@drawable/small"
+        android:background="@drawable/sma"
         android:onClick="InsertCTipo1"
         android:layout_alignBottom="@+id/btnCTipo2"
         android:layout_alignLeft="@+id/txtViewCT1"
