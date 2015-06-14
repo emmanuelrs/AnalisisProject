@@ -125,6 +125,7 @@ public class Truck {
     public ArrayList<DeliveryPackage> getPossibleDeliveries() {
         return possibleDeliveries;
     }
+
     public void setPackagesToDeliver(ArrayList<DeliveryPackage> packagesToDeliver) {
         this.packagesToDeliver = packagesToDeliver;
     }

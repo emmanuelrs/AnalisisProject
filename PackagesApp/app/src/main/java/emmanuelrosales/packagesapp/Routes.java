@@ -46,15 +46,16 @@ public class Routes extends ActionBarActivity {
             int indexLetter = 0;
 
             while (!totalPackages.isEmpty() && truckCounter < totalTrucks.size()) {
-                System.out.print("Tamaño totalpackage 1: ");
-                System.out.println(totalPackages.size());
+                System.out.println("Package List: " + totalPackages.size());
                 truck = totalTrucks.get(truckCounter);
                 truck.organizeOwner(totalPackages);
-                System.out.println("-------------I--------------------------");
 
                 truck.setPackagesToDeliver(totalPackages);
+                System.out.println("Package List: " + totalPackages.size());
                 truck.greedy(totalPackages.size());
-                totalPackages = truck.getPossibleDeliveries();
+                System.out.println("Package List: " + totalPackages.size());
+                totalPackages = new ArrayList<DeliveryPackage>(truck.getPossibleDeliveries());
+                System.out.println("Package List: " + totalPackages.size());
 
                 Population population = new Population(totalPackages);
                 population.generatePopulation(15, totalPackages.size(), true, truck);
@@ -66,9 +67,6 @@ public class Routes extends ActionBarActivity {
                         i++;
                     }
                 }
-                System.out.print("Tamaño totalpackage 2: ");
-                System.out.println(totalPackages.size());
-
                 System.out.println("---------------------------------");
                 System.out.println("Paquetes para meter al camion: " + totalPackages.size());
                 System.out.println("length: " + truck.getContainerLength());
@@ -95,22 +93,14 @@ public class Routes extends ActionBarActivity {
                     } 
                 }
 
-                System.out.print("Tamaño totalpackage 2.5: ");
-                System.out.println(totalPackages.size());
-
                 System.out.println(population.returnBestCandidate().getChromosome());
                 System.out.println("Paquetes en el camion: " + population.returnBestCandidate().getFitness());
                 individual = population.returnBestCandidate();
                 individual.eliminatePackages(totalPackages);
-                System.out.print("Tamaño totalpackage 2.7: ");
-                System.out.println(totalPackages.size());
-                System.out.println(truck.getOtherPackages().size());
                 truck.addPackages(totalPackages);
-                System.out.print("Tamaño totalpackage 3: ");
-                System.out.println(totalPackages.size());
                 truckCounter++;
-
-
+                truck.getPossibleDeliveries().clear();
+                truck.getOtherPackages().clear();
             }
 
             System.out.println("--------------------------------");

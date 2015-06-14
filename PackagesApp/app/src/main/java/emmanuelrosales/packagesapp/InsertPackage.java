@@ -106,14 +106,14 @@ public class InsertPackage extends ActionBarActivity {
         paquetes.add(paquete11);
         DeliveryPackage paquete12 = new DeliveryPackage(5,3,1,13,owner_default.getClientes().get(4));
         paquetes.add(paquete12);
-      //  DeliveryPackage paquete13 = new DeliveryPackage(2,2,2,7,owner_default.getClientes().get(5));
-      //  paquetes.add(paquete13);
-      //  DeliveryPackage paquete14 = new DeliveryPackage(1,2,3,5,owner_default.getClientes().get(6));
-      //  paquetes.add(paquete14);
-       // DeliveryPackage paquete15 = new DeliveryPackage(5,5,5,10,owner_default.getClientes().get(0));
-       // paquetes.add(paquete15);
-       // DeliveryPackage paquete16 = new DeliveryPackage(4,4,4,14,owner_default.getClientes().get(1));
-      //  paquetes.add(paquete16);
+        DeliveryPackage paquete13 = new DeliveryPackage(2,2,2,7,owner_default.getClientes().get(5));
+        paquetes.add(paquete13);
+        DeliveryPackage paquete14 = new DeliveryPackage(1,2,3,5,owner_default.getClientes().get(6));
+        paquetes.add(paquete14);
+        DeliveryPackage paquete15 = new DeliveryPackage(5,5,5,10,owner_default.getClientes().get(0));
+        paquetes.add(paquete15);
+        DeliveryPackage paquete16 = new DeliveryPackage(4,4,4,14,owner_default.getClientes().get(1));
+        paquetes.add(paquete16);
     }
 
     public void getValP(View view) {
