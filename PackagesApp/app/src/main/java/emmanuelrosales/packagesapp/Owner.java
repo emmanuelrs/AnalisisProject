@@ -2,6 +2,7 @@ package emmanuelrosales.packagesapp;
 
 /**
  * Created by Miuyin on 5/31/15.
+ * Class that has all the attributes and functions of Owner
  */
 public class Owner {
     private String ownerName;
@@ -11,6 +12,7 @@ public class Owner {
     private int dispacheTime = 1;
     private int travelTime ;
 
+    // Constructor
     public Owner(String pName, int pStart, int pEnd, String pAddress, int pTravelTime) {
         // TODO Auto-generated constructor stub
 
@@ -26,6 +28,7 @@ public class Owner {
 
     }
 
+    // Setters and getters
     public String getOwnerName() {
         return ownerName;
     }

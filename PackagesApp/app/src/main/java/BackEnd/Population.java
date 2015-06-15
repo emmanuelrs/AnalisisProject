@@ -9,6 +9,8 @@ import emmanuelrosales.packagesapp.DeliveryPackage;
 import emmanuelrosales.packagesapp.Truck;
 import emmanuelrosales.packagesapp.DeliveryPackage;
 
+// Class that has all the attributes and functions of a population
+
 public class Population{
     private ArrayList<Individual> listOfIndividuals;
     private ArrayList<DeliveryPackage> candidateSet;
@@ -17,6 +19,7 @@ public class Population{
     private double mutationProbability = 0.05;
     private int chromosome;
 
+    //constructor
     public Population(ArrayList<DeliveryPackage> candidateSet){
         listOfIndividuals = new ArrayList<Individual>();
         this.candidateSet = sortArray(candidateSet);
@@ -24,6 +27,7 @@ public class Population{
         mutationProbability = 0.05;
     }
 
+    //Function that organizes the array by volume
     public ArrayList<DeliveryPackage> sortArray(ArrayList<DeliveryPackage> list){
         Collections.sort(list, new Comparator<DeliveryPackage>() {
             public int compare(DeliveryPackage p1, DeliveryPackage p2) {
@@ -34,6 +38,7 @@ public class Population{
         return list;
     }
 
+    //function that generates a population
     public void generatePopulation(int populationSize,int chromosomeSize, boolean option, Truck container){
         chromosome = chromosomeSize;
         if (option){
@@ -69,6 +74,7 @@ public class Population{
         return false;
     }
 
+    // Function to cross individuals
     public Individual crossIndividuals(ArrayList<Integer> firstIndividual, ArrayList<Integer> secondIndividual){
         Random random = new Random();
         int gene = random.nextInt(1);
@@ -108,6 +114,7 @@ public class Population{
         return individual;
     }
 
+    //Function to return the best candidate (individual with the best fitness)
     public Individual returnBestCandidate(){
         Individual individual = listOfIndividuals.get(0);
         for(int i = 0; i < listOfIndividuals.size(); i++){
@@ -119,6 +126,7 @@ public class Population{
 
     }
 
+    //Function that selects the individual with the best fitness
     public Individual selectBestFit(ArrayList<Individual> selection){
         Individual individual;
         individual = selection.get(0);

@@ -6,6 +6,7 @@ import java.util.Comparator;
 
 /**
  * Created by emmanuelrosales on 5/31/15.
+ * This class has all the attributes and functions of the Trucks
  */
 
 public class Truck {
@@ -22,7 +23,7 @@ public class Truck {
     private ArrayList<DeliveryPackage> possibleDeliveries = new ArrayList<DeliveryPackage>();
 
 
-
+    // Constructor
     public Truck(int pLength, int pWidth, int pHeight){
 
         counter++;
@@ -34,6 +35,7 @@ public class Truck {
 
     }
 
+    // function that organizes the owners by the start availability time
     public void organizeOwner(ArrayList<DeliveryPackage> list){
         Collections.sort(list, new Comparator<DeliveryPackage>() {
             public int compare(DeliveryPackage p1, DeliveryPackage p2) {
@@ -42,6 +44,7 @@ public class Truck {
         });
     }
 
+    //Function that determines which packages are possible to deliver since the times to clash
     public ArrayList<DeliveryPackage> greedy(int amount){
         organizeOwner(packagesToDeliver);
         int indice = 0;
@@ -87,6 +90,7 @@ public class Truck {
         listOfPackages.addAll(otherPackages);
     }
 
+    // Setters and getters
     public int getVolume(){return volume;}
 
     public void setVolume(int volume){this.volume = volume;}

@@ -12,7 +12,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+// Class to display the registered owner
 public class ViewOwner extends ActionBarActivity {
 
     InsertOwner cliente = new InsertOwner();

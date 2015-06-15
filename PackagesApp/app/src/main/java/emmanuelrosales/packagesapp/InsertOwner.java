@@ -16,6 +16,8 @@ import android.content.DialogInterface;
 
 import java.util.ArrayList;
 
+/*Class that has all the functions to insert into the Owner
+* */
 
 public class InsertOwner extends ActionBarActivity {
 

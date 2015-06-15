@@ -12,7 +12,7 @@ import android.app.AlertDialog;
 import java.util.ArrayList;
 import android.content.DialogInterface;
 
-
+// Class that has all the functions to insert into Truck
 public class InsertTruck extends ActionBarActivity {
 
     static private ArrayList<Truck> camiones = new ArrayList<Truck>();

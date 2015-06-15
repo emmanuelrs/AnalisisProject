@@ -15,7 +15,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-
+/* Class that has all the functions to insert into the packages
+* */
 public class InsertPackage extends ActionBarActivity {
     private String array_spinner[];
     static private ArrayList<DeliveryPackage> paquetes = new ArrayList<DeliveryPackage>();

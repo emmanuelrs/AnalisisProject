@@ -1,5 +1,6 @@
 package BackEnd;
 
+// Class that has the attributes and functions of a subspace
 class Subspace {
     private int length;
     private int width;

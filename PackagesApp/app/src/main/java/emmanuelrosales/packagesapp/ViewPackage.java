@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.SimpleTimeZone;
 
-
+// Class to display the registered packages
 public class ViewPackage extends ActionBarActivity {
 
     InsertPackage paquete = new InsertPackage();

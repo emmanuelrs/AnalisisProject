@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 import BackEnd.*;
 
+// Class that calculates the possible routes
 
 public class Routes extends ActionBarActivity {
 
@@ -81,11 +82,11 @@ public class Routes extends ActionBarActivity {
                     System.out.println(population.returnBestCandidate().getChromosome().get(j));
                     if (population.returnBestCandidate().getChromosome().get(j) == 1) {
                         String message = "";
-                        message = message + "                   " + Integer.toString(packageCounter + 1);
-                        message = message + "                   " + totalPackages.get(j).getOwner().getOwnerName();
-                        message = message + "                   " + totalPackages.get(j).getOwner().getAddress();
-                        message = message + "                   " + Integer.toString(totalPackages.get(j).getTruckNumber());
-                        message = message + "                   " + Integer.toString(totalPackages.get(j).getOwner().getStartAvailablity());
+                        message = message + "                            " + Integer.toString(packageCounter + 1);
+                        message = message + "                            " + totalPackages.get(j).getOwner().getOwnerName();
+                        message = message + "                            " + totalPackages.get(j).getOwner().getAddress();
+                        message = message + "                                       " + Integer.toString(totalPackages.get(j).getTruckNumber());
+                        message = message + "                                              " + Integer.toString(totalPackages.get(j).getOwner().getStartAvailablity());
                         System.out.println(message);
                         letters[indexLetter] = message;
                         indexLetter += 1;

@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Random;
 import emmanuelrosales.packagesapp.DeliveryPackage;
 
+// Class that has all the function and attributes of an Individual
+
 public class Individual {
     private ArrayList<Integer> chromosome;
     private ArrayList<DeliveryPackage> phenotype;
@@ -38,6 +40,7 @@ public class Individual {
         }
     }
 
+    //Fucntion that calculates the fitness of an individual
     public void calculateFitness(ArrayList<DeliveryPackage> list, int length, int width, int height){
         int counter = 0;
         int p_length = length;

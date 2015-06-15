@@ -2,12 +2,10 @@ package emmanuelrosales.packagesapp;
 
 /**
  * Created by Emmanuel on 02-Jun-15.
+ * Class that has all the attributes and function for a package
  */
 public class DeliveryPackage {
 
-    /**
-     *
-     */
 
     private int packageLength;
     private int packageWidth;
@@ -39,6 +37,7 @@ public class DeliveryPackage {
 
     }
 
+    // setters and getters
     public int getPackageLength() {
         return packageLength;
     }

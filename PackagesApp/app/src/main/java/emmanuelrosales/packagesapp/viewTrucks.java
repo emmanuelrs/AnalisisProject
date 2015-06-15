@@ -16,7 +16,7 @@ import android.widget.Toast;
 import android.view.View;
 import android.widget.AdapterView.OnItemClickListener;
 
-
+// Class to display the registered Trucks
 public class viewTrucks extends ActionBarActivity {
 
 
