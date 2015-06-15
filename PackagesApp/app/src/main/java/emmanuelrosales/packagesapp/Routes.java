@@ -37,10 +37,7 @@ public class Routes extends ActionBarActivity {
             Individual individual;
 
             GridView grid;
-            String[] letters = new String[totalPackages.size()];
-
-            String[] myStringArray = new String[totalPackages.size()];
-
+            String[] letters = new String[totalPackages.size() * 5];
 
             int truckCounter = 0;
             int packageCounter = 0;
@@ -77,19 +74,18 @@ public class Routes extends ActionBarActivity {
 
                 System.out.print("indexLetter: ");
                 System.out.println(indexLetter);
+
                 for (int j = 0; j < totalPackages.size(); j++) {
                     System.out.print("--");
                     System.out.println(population.returnBestCandidate().getChromosome().get(j));
                     if (population.returnBestCandidate().getChromosome().get(j) == 1) {
-                        String message = "";
-                        message = message + "                            " + Integer.toString(packageCounter + 1);
-                        message = message + "                            " + totalPackages.get(j).getOwner().getOwnerName();
-                        message = message + "                            " + totalPackages.get(j).getOwner().getAddress();
-                        message = message + "                                       " + Integer.toString(totalPackages.get(j).getTruckNumber());
-                        message = message + "                                              " + Integer.toString(totalPackages.get(j).getOwner().getStartAvailablity());
-                        System.out.println(message);
-                        letters[indexLetter] = message;
-                        indexLetter += 1;
+                        letters[indexLetter] = Integer.toString(packageCounter + 1);
+                        letters[indexLetter + 1] = totalPackages.get(j).getOwner().getOwnerName();
+                        letters[indexLetter + 2] = totalPackages.get(j).getOwner().getAddress();
+                        letters[indexLetter + 3] = Integer.toString(totalPackages.get(j).getTruckNumber());
+                        letters[indexLetter + 4] = Integer.toString(totalPackages.get(j).getOwner().getStartAvailablity());
+
+                        indexLetter += 5;
                         packageCounter += 1;
                     } 
                 }

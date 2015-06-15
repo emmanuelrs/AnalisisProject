@@ -167,10 +167,10 @@
         android:id="@+id/generateButton"
         android:textSize="50dp"
         android:textColor="#ffffffff"
-        android:width="400dp"
+        android:width="250dp"
         android:onClick="generate"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/ViewR"
-        android:layout_alignEnd="@+id/ViewR" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

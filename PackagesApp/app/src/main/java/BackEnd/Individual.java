@@ -40,7 +40,7 @@ public class Individual {
         }
     }
 
-    //Fucntion that calculates the fitness of an individual
+    //Function that calculates the fitness of an individual creating 3 subspaces for each package.
     public void calculateFitness(ArrayList<DeliveryPackage> list, int length, int width, int height){
         int counter = 0;
         int p_length = length;

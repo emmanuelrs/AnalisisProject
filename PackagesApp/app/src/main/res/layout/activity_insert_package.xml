@@ -71,10 +71,9 @@
         android:height="80dp"
         android:textSize="50dp"
         android:background="#FFFFFF"
-        android:layout_below="@+id/inputPHeight"
+        android:layout_below="@+id/txtDeliveryDateP"
         android:layout_alignLeft="@+id/inputPHeight"
-        android:layout_alignStart="@+id/inputPHeight"
-        android:layout_marginTop="86dp" />
+        android:layout_alignStart="@+id/inputPHeight" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -149,9 +148,9 @@
         android:height="60dp"
         android:textColor="#ffffffff"
         android:textSize="50dp"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/inputDiasEntrega"
-        android:layout_alignStart="@+id/inputDiasEntrega" />
+        android:layout_below="@+id/spinner"
+        android:layout_toLeftOf="@+id/btnInsertP"
+        android:layout_toStartOf="@+id/btnInsertP" />
 
     <TextView
         android:layout_width="wrap_content"
